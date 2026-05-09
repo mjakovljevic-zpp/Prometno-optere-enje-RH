@@ -1,0 +1,78 @@
+{
+  "years": [
+    2021,
+    2022,
+    2023,
+    2024
+  ],
+  "by_year": {
+    "2021": {
+      "n_sections": 3229,
+      "total_length_km": 11824.390114869164,
+      "avg_pgdp": 4845.84298544441,
+      "avg_pldp": 6247.187090739008,
+      "max_pgdp": 21617.0,
+      "max_pldp": 27101.0,
+      "by_category": {
+        "državna cesta": 2186,
+        "županijska cesta": 922,
+        "lokalna cesta": 121
+      },
+      "by_confidence": {
+        "medium": 2827,
+        "low": 402
+      }
+    },
+    "2022": {
+      "n_sections": 3210,
+      "total_length_km": 11789.06715460605,
+      "avg_pgdp": 5081.528971962617,
+      "avg_pldp": 6384.915887850468,
+      "max_pgdp": 22710.0,
+      "max_pldp": 27943.0,
+      "by_category": {
+        "državna cesta": 2176,
+        "županijska cesta": 910,
+        "lokalna cesta": 124
+      },
+      "by_confidence": {
+        "medium": 2808,
+        "low": 402
+      }
+    },
+    "2023": {
+      "n_sections": 3226,
+      "total_length_km": 11862.232025570242,
+      "avg_pgdp": 5240.137631742095,
+      "avg_pldp": 6624.114026866604,
+      "max_pgdp": 22967.0,
+      "max_pldp": 28211.0,
+      "by_category": {
+        "državna cesta": 2193,
+        "županijska cesta": 914,
+        "lokalna cesta": 119
+      },
+      "by_confidence": {
+        "medium": 2820,
+        "low": 406
+      }
+    },
+    "2024": {
+      "n_sections": 3360,
+      "total_length_km": 11922.225474202962,
+      "avg_pgdp": 5530.632738095238,
+      "avg_pldp": 6794.496692723993,
+      "max_pgdp": 24813.0,
+      "max_pldp": 28140.0,
+      "by_category": {
+        "državna cesta": 2313,
+        "županijska cesta": 935,
+        "lokalna cesta": 112
+      },
+      "by_confidence": {
+        "medium": 2937,
+        "low": 423
+      }
+    }
+  }
+}

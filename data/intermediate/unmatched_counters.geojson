@@ -1,0 +1,8 @@
+{
+"type": "FeatureCollection",
+"name": "_unmatched_counters",
+"crs": { "type": "name", "properties": { "name": "urn:ogc:def:crs:OGC:1.3:CRS84" } },
+"features": [
+{ "type": "Feature", "properties": { "counter_id": "1222", "category": "DC", "matched_oznaka_ceste": "DC24", "naziv": "Novi Marof - zapad", "od": "LC25134", "do": "LC25132", "length_km": 0.9, "lat": 46.183892, "lon": 16.342777, "kategorija_full": "državna cesta", "seg_id": 1614, "seg_length_m": 32469.386102617103, "dist_m": 2543.8937362451361, "match_method": "exact_road_name", "oznaka_ceste": "DC24", "confidence": "low" }, "geometry": { "type": "Point", "coordinates": [ 16.342777, 46.183892 ] } }
+]
+}

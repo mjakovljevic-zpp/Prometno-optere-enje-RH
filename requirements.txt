@@ -1,0 +1,10 @@
+pandas>=2.0
+openpyxl>=3.1
+xlrd>=2.0
+geopandas>=0.14
+shapely>=2.0
+fiona>=1.9
+pyproj>=3.6
+rtree>=1.0
+networkx>=3.1
+numpy>=1.24

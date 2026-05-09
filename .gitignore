@@ -1,0 +1,23 @@
+# Python
+__pycache__/
+*.pyc
+.venv/
+venv/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Editors
+.vscode/
+.idea/
+
+# Generated reports (keep light copies in repo if useful)
+reports/*.html
+reports/*.csv
+!reports/.gitkeep
+
+# Heavy intermediate artefacts (uncomment if not desired in repo)
+# data/intermediate/
+
+# Source raw data (the source XLS/PDF/GPKG live in the parent folder)
