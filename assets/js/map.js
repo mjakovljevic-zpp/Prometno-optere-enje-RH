@@ -74,6 +74,7 @@
     roadFilter: '',
     showCounters: false,
     onlyIssues: false,
+    showLabels: false,
   };
 
   const map = L.map('map', { zoomControl: true, preferCanvas: true }).setView([45.1, 16.0], 7);
@@ -83,6 +84,7 @@
 
   let sectionsLayer = null;
   let countersLayer = null;
+  let labelsLayer = null;
 
   function metricVal(props) {
     let v = props[`${state.metric}_${state.year}`];
@@ -191,6 +193,7 @@
       type: 'FeatureCollection',
       features: state.sections.features.filter(f => passesFilters(f.properties || {})),
     };
+    renderLabels();
     sectionsLayer = L.geoJSON(filtered, {
       style: styleFor,
       onEachFeature: (feat, layer) => {
@@ -205,6 +208,87 @@
       },
     }).addTo(map);
     updateDashboard(filtered);
+  }
+
+  // Pomocna: vrati centroid LineString-a
+  function lineCenter(geom) {
+    if (!geom) return null;
+    let coords = geom.coordinates;
+    if (geom.type === 'MultiLineString') {
+      // uzmi najduzi LineString u Multi
+      let best = coords[0];
+      let bestLen = 0;
+      for (const ls of coords) {
+        let l = 0;
+        for (let i = 1; i < ls.length; i++) {
+          const dx = ls[i][0] - ls[i-1][0], dy = ls[i][1] - ls[i-1][1];
+          l += Math.sqrt(dx*dx + dy*dy);
+        }
+        if (l > bestLen) { bestLen = l; best = ls; }
+      }
+      coords = best;
+    }
+    if (!coords || coords.length === 0) return null;
+    // Sredina po duljini
+    let total = 0;
+    const segs = [];
+    for (let i = 1; i < coords.length; i++) {
+      const dx = coords[i][0] - coords[i-1][0], dy = coords[i][1] - coords[i-1][1];
+      const l = Math.sqrt(dx*dx + dy*dy);
+      segs.push(l);
+      total += l;
+    }
+    let target = total / 2;
+    let acc = 0;
+    for (let i = 0; i < segs.length; i++) {
+      if (acc + segs[i] >= target) {
+        const t = (target - acc) / segs[i];
+        return [
+          coords[i][1] + t * (coords[i+1][1] - coords[i][1]), // lat
+          coords[i][0] + t * (coords[i+1][0] - coords[i][0]), // lon
+        ];
+      }
+      acc += segs[i];
+    }
+    return [coords[0][1], coords[0][0]];
+  }
+
+  function renderLabels() {
+    if (labelsLayer) { map.removeLayer(labelsLayer); labelsLayer = null; }
+    if (!state.showLabels || !state.sections) return;
+
+    const zoom = map.getZoom();
+    if (zoom < 9) return;  // ispod ovog zooma ne crtamo nista (previse linija)
+    const minVal = zoom < 10 ? 12000 : (zoom < 12 ? 5000 : 0);
+
+    const filtered = state.sections.features.filter(f => {
+      if (!passesFilters(f.properties || {})) return false;
+      const v = metricVal(f.properties);
+      if (v == null || v < minVal) return false;
+      return true;
+    });
+
+    // Za jako gusto, decimacija: na zoom 9-10 max 200 labela
+    const maxLabels = zoom < 10 ? 150 : (zoom < 12 ? 400 : 1500);
+    const sample = filtered
+      .map(f => ({ f, v: metricVal(f.properties) }))
+      .sort((a, b) => b.v - a.v)
+      .slice(0, maxLabels);
+
+    const big = zoom >= 12 ? 'zoom-large' : '';
+    const layers = [];
+    for (const { f, v } of sample) {
+      const c = lineCenter(f.geometry);
+      if (!c) continue;
+      const txt = state.metric === 'v_avg' ? fmt(v) + ' km/h' : fmt(v);
+      const icon = L.divIcon({
+        className: '',
+        html: `<div class="section-label metric-${state.metric} ${big}">${txt}</div>`,
+        iconSize: null,
+      });
+      layers.push(L.marker(c, { icon, interactive: false }));
+    }
+    labelsLayer = L.layerGroup(layers).addTo(map);
   }
 
   function renderCounters() {
@@ -324,6 +408,12 @@
     document.getElementById('f-only-issues').addEventListener('change', e => {
       state.onlyIssues = e.target.checked; renderSections();
     });
+    document.getElementById('f-show-labels').addEventListener('change', e => {
+      state.showLabels = e.target.checked; renderLabels();
+    });
+    map.on('zoomend moveend', () => {
+      if (state.showLabels) renderLabels();
+    });
   }
   function setupReset() {
     document.getElementById('btn-reset').addEventListener('click', () => {
@@ -332,6 +422,8 @@
       });
       document.getElementById('f-show-counters').checked = false;
       document.getElementById('f-only-issues').checked = false;
+      const lblCb = document.getElementById('f-show-labels');
+      if (lblCb) lblCb.checked = false;
       Array.from(document.getElementById('f-cat').options).forEach(o => o.selected = true);
       document.querySelectorAll('input[type="checkbox"][data-conf]').forEach(cb => cb.checked = true);
       state.cats = new Set(DEFAULT_CATS);
@@ -341,6 +433,8 @@
       state.roadFilter = '';
       state.showCounters = false;
       state.onlyIssues = false;
+      state.showLabels = false;
+      if (labelsLayer) { map.removeLayer(labelsLayer); labelsLayer = null; }
       renderSections(); renderCounters();
     });
   }

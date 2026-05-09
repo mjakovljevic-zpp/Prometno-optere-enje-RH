@@ -7,79 +7,79 @@
   ],
   "by_year": {
     "2021": {
-      "n_sections": 4314,
-      "total_length_km": 15037.79913244337,
-      "avg_pgdp": 7605.1228558182665,
-      "avg_pldp": 11578.993243243243,
-      "max_pgdp": 38026.0,
-      "max_pldp": 66942.0,
+      "n_sections": 7085,
+      "total_length_km": 14095.700828452913,
+      "avg_pgdp": 6470.811150317572,
+      "avg_pldp": 10876.61192127991,
+      "max_pgdp": 37370.0,
+      "max_pldp": 48854.0,
       "by_category": {
-        "državna cesta": 2186,
-        "autocesta": 1085,
-        "županijska cesta": 922,
+        "autocesta": 3923,
+        "državna cesta": 2122,
+        "županijska cesta": 919,
         "lokalna cesta": 121
       },
       "by_confidence": {
-        "medium": 2885,
-        "low": 849,
-        "high": 580
+        "high": 3495,
+        "medium": 2238,
+        "low": 1352
       }
     },
     "2022": {
-      "n_sections": 4310,
-      "total_length_km": 15068.89856115637,
-      "avg_pgdp": 8259.296287703017,
-      "avg_pldp": 12033.024679860302,
-      "max_pgdp": 41674.0,
-      "max_pldp": 68947.0,
+      "n_sections": 7300,
+      "total_length_km": 14207.263235059258,
+      "avg_pgdp": 7119.235753424658,
+      "avg_pldp": 11747.09283894707,
+      "max_pgdp": 39599.0,
+      "max_pldp": 50584.0,
       "by_category": {
-        "državna cesta": 2176,
-        "autocesta": 1100,
-        "županijska cesta": 910,
+        "autocesta": 4157,
+        "državna cesta": 2112,
+        "županijska cesta": 907,
         "lokalna cesta": 124
       },
       "by_confidence": {
-        "medium": 2866,
-        "low": 852,
-        "high": 592
+        "high": 3723,
+        "medium": 2217,
+        "low": 1360
       }
     },
     "2023": {
-      "n_sections": 4243,
-      "total_length_km": 14924.758388932749,
-      "avg_pgdp": 8207.324770209758,
-      "avg_pldp": 11976.145329540066,
-      "max_pgdp": 45136.0,
-      "max_pldp": 72569.0,
+      "n_sections": 7282,
+      "total_length_km": 14277.126481916344,
+      "avg_pgdp": 7660.39027739632,
+      "avg_pldp": 12215.781176794819,
+      "max_pgdp": 23258.0,
+      "max_pldp": 40310.0,
       "by_category": {
-        "državna cesta": 2193,
-        "autocesta": 1017,
-        "županijska cesta": 914,
+        "autocesta": 4122,
+        "državna cesta": 2130,
+        "županijska cesta": 911,
         "lokalna cesta": 119
       },
       "by_confidence": {
-        "medium": 2878,
-        "low": 773,
-        "high": 592
+        "high": 3749,
+        "medium": 2204,
+        "low": 1329
       }
     },
     "2024": {
-      "n_sections": 4414,
-      "total_length_km": 15135.061921538043,
-      "avg_pgdp": 8645.820117806978,
-      "avg_pldp": 12395.782420091324,
-      "max_pgdp": 47443.0,
-      "max_pldp": 74375.0,
+      "n_sections": 7482,
+      "total_length_km": 14507.08413912189,
+      "avg_pgdp": 8069.410719059075,
+      "avg_pldp": 12567.589017185821,
+      "max_pgdp": 25481.0,
+      "max_pldp": 41228.0,
       "by_category": {
+        "autocesta": 4122,
         "državna cesta": 2313,
-        "autocesta": 1054,
         "županijska cesta": 935,
         "lokalna cesta": 112
       },
       "by_confidence": {
-        "medium": 2995,
-        "low": 790,
-        "high": 629
+        "high": 3834,
+        "medium": 2302,
+        "low": 1346
       }
     }
   },

@@ -350,6 +350,24 @@ footer a { color: #ddd; }
 
 .leaflet-container { font-family: inherit; }
 
+/* Inline labele s PGDP/PLDP/brzina vrijednosti */
+.section-label {
+  background: rgba(255, 255, 255, 0.9);
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  border-radius: 4px;
+  padding: 1px 5px;
+  font-weight: 600;
+  font-size: 11px;
+  color: var(--secondary);
+  white-space: nowrap;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+  pointer-events: none;
+}
+.section-label.zoom-large { font-size: 13px; padding: 2px 7px; }
+.section-label.metric-pgdp { color: #c8102e; }
+.section-label.metric-pldp { color: #1f3864; }
+.section-label.metric-v_avg { color: #ef6c00; }
+
 .collapsible-summary {
   margin-top: 1rem;
 }
