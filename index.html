@@ -13,6 +13,8 @@
           integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
   <!-- Chart.js za popup-trendove -->
   <script defer src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+  <!-- SheetJS za export u XLSX -->
+  <script defer src="https://cdn.jsdelivr.net/npm/xlsx@0.18.5/dist/xlsx.full.min.js"></script>
 </head>
 <body class="map-page">
 <header>
@@ -115,6 +117,9 @@
         <div class="map-toolbar">
           <button class="btn secondary" id="btn-fullscreen">⛶ Cijeli zaslon</button>
           <button class="btn secondary" id="btn-fit">Centriraj</button>
+          <button class="btn secondary" id="btn-export-xlsx">📊 Excel</button>
+          <button class="btn secondary" id="btn-export-geojson">🗺️ GeoJSON</button>
+          <button class="btn secondary" id="btn-export-csv">📄 CSV</button>
           <span style="margin-left:auto; font-size:0.85rem; color:var(--muted);" id="counts-line"></span>
         </div>
         <div id="map"></div>

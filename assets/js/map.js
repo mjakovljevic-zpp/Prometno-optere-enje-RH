@@ -357,6 +357,83 @@
       else document.exitFullscreen?.();
       setTimeout(() => map.invalidateSize(), 200);
     });
+    document.getElementById('btn-export-xlsx').addEventListener('click', exportXlsx);
+    document.getElementById('btn-export-geojson').addEventListener('click', exportGeoJSON);
+    document.getElementById('btn-export-csv').addEventListener('click', exportCSV);
+  }
+
+  function getFilteredFeatures() {
+    if (!state.sections) return [];
+    return state.sections.features.filter(f => passesFilters(f.properties || {}));
+  }
+
+  function flatRow(props) {
+    const years = state.summary.years || [];
+    const row = {
+      seg_id: props.seg_id,
+      oznaka_ceste: props.oznaka_ceste,
+      kategorija: props.kategorija_full,
+      duljina_km: props.seg_length_m ? +(props.seg_length_m / 1000).toFixed(3) : null,
+      opis_ceste: props.opis_ceste,
+    };
+    for (const y of years) {
+      row['pgdp_' + y] = props['pgdp_' + y] != null ? props['pgdp_' + y] : null;
+      row['pldp_' + y] = props['pldp_' + y] != null ? props['pldp_' + y] : null;
+      row['smjer_' + y] = props['smjer_' + y] != null ? props['smjer_' + y] : null;
+      row['pgdp_drugi_smjer_' + y] = props['pgdp_other_' + y] != null ? props['pgdp_other_' + y] : null;
+      row['pldp_drugi_smjer_' + y] = props['pldp_other_' + y] != null ? props['pldp_other_' + y] : null;
+      row['brojac_' + y] = props['cnt_' + y] != null ? props['cnt_' + y] : null;
+      row['pouzdanost_' + y] = props['conf_' + y] != null ? props['conf_' + y] : null;
+      if (props['v_avg_' + y] != null) row['brzina_avg_' + y] = props['v_avg_' + y];
+      if (props['v_max_' + y] != null) row['brzina_max_dop_' + y] = props['v_max_' + y];
+    }
+    return row;
+  }
+
+  function downloadBlob(data, filename, mime) {
+    const blob = new Blob([data], { type: mime });
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement('a');
+    a.href = url;
+    a.download = filename;
+    document.body.appendChild(a);
+    a.click();
+    setTimeout(() => { document.body.removeChild(a); URL.revokeObjectURL(url); }, 200);
+  }
+
+  function exportXlsx() {
+    const feats = getFilteredFeatures();
+    if (!feats.length) { alert('Nema dionica za export.'); return; }
+    if (!window.XLSX) { alert('XLSX biblioteka jos nije ucitana, pricekaj sekundu.'); return; }
+    const rows = feats.map(f => flatRow(f.properties));
+    const ws = XLSX.utils.json_to_sheet(rows);
+    const wb = XLSX.utils.book_new();
+    XLSX.utils.book_append_sheet(wb, ws, 'Dionice');
+    const ts = new Date().toISOString().slice(0, 10);
+    XLSX.writeFile(wb, 'karta-opterecenja-' + ts + '.xlsx');
+  }
+
+  function exportGeoJSON() {
+    const feats = getFilteredFeatures();
+    if (!feats.length) { alert('Nema dionica za export.'); return; }
+    const fc = { type: 'FeatureCollection', features: feats };
+    const ts = new Date().toISOString().slice(0, 10);
+    downloadBlob(JSON.stringify(fc), 'karta-opterecenja-' + ts + '.geojson', 'application/geo+json');
+  }
+
+  function exportCSV() {
+    const feats = getFilteredFeatures();
+    if (!feats.length) { alert('Nema dionica za export.'); return; }
+    const rows = feats.map(f => flatRow(f.properties));
+    const colSet = new Set();
+    rows.forEach(r => Object.keys(r).forEach(k => colSet.add(k)));
+    const cols = Array.from(colSet);
+    const esc = (v) => v == null ? '' : (/[",\n;]/.test(String(v)) ? '"' + String(v).replace(/"/g, '""') + '"' : String(v));
+    const header = cols.join(',');
+    const lines = rows.map(r => cols.map(c => esc(r[c])).join(','));
+    const csv = '﻿' + header + '\n' + lines.join('\n');
+    const ts = new Date().toISOString().slice(0, 10);
+    downloadBlob(csv, 'karta-opterecenja-' + ts + '.csv', 'text/csv;charset=utf-8');
   }
 
   async function init() {
@@ -380,7 +457,7 @@
   if (document.readyState === 'loading') {
     document.addEventListener('DOMContentLoaded', () => init().catch(e => {
       console.error(e);
-      document.getElementById('counts-line').textContent = 'Greška pri učitavanju podataka.';
+      document.getElementById('counts-line').textContent = 'Greska pri ucitavanju podataka.';
     }));
   } else {
     init().catch(e => console.error(e));
