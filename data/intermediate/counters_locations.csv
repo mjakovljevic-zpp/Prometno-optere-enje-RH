@@ -1,7 +1,7 @@
 counter_id,category,oznaka_ceste,naziv,od,do,length_km,lat,lon
 5333,LC,LCner.,Srima,DC8,DC8,5.0,,
 3037,LC,LCner.,Ogulin,DC42,DC42,1.6,,
-2823,AC,AC7,Rujevica - zapad,AC8,DC427,6.0,,
+2823,AC,A7,Rujevica - zapad,A8,DC427,6.0,,
 5435,LC,LC67065,Solin Donja Strana,DC8,ŽC6253,3.4,,
 5533,LC,LC67075,Klis Kosa,ŽC6253,ŽC6253,7.6,,
 5534,LC,LC67076,Podi,DC56,ŽC6260,5.9,,
@@ -44,7 +44,7 @@ counter_id,category,oznaka_ceste,naziv,od,do,length_km,lat,lon
 1208,DC,DC2,Majerje,ŽC2046,ŽC2037,2.5,46.33703,16.2524
 1203,DC,DC2,Dubrava Križovljanska,LC25001,ŽC2027,1.6,46.379808,16.063727
 5441,DC,DC1,Dračevac,DC56,DC8,8.7,,
-5523,DC,DC1,Dugopolje,AC1,DC56,3.6,,
+5523,DC,DC1,Dugopolje,A1,DC56,3.6,,
 5526,DC,DC1,Dicmo,ŽC6119,ŽC6120,0.9,43.641,16.599405
 5504,DC,DC1,Brnaze,DC60,LC67041,1.7,43.679316,16.649053
 5524,DC,DC1,Sinj,ŽC6118,DC219,3.3,43.720748,16.641355
@@ -84,7 +84,7 @@ counter_id,category,oznaka_ceste,naziv,od,do,length_km,lat,lon
 3701,DC,DC2,Klisa aerodrom - sjever,LC44115,DC418,1.3,45.492108,18.813362
 2523,DC,DC2,Osijek juž. obil. Bosutsko,Mandića,Vinkovačka,1.2,,
 2508,DC,DC2,Osijek južna obilaznica,DC7,Mandića,2.4,,
-2522,DC,DC2,Osijek juž. obil. Višnjevac,AC5,DC7,5.6,,
+2522,DC,DC2,Osijek juž. obil. Višnjevac,A5,DC7,5.6,,
 3411,DC,DC5,Filipovac,LC41014,DC5,2.8,45.42091,17.17589
 2213,DC,DC5,Badljevina,ŽC3272,LC41002,0.4,45.51227,17.192326
 2230,DC,DC5,Doljani,ŽC3170,ŽC3172,2.3,45.5825,17.22197
@@ -93,14 +93,14 @@ counter_id,category,oznaka_ceste,naziv,od,do,length_km,lat,lon
 2215,DC,DC5,Virovitica obilaznica jug,DC2,DC2,4.2,45.834484,17.350603
 2214,DC,DC5,Virovitica obilaznica sj.,DC538,DC2,6.1,45.848676,17.370312
 2202,DC,DC5,Terezino Polje,LC40008,LC40009,0.75,45.937227,17.461143
-2842,DC,DC3,Orehovica,AC6,DC8,2.3,45.33368,14.45792
+2842,DC,DC3,Orehovica,A6,DC8,2.3,45.33368,14.45792
 2935,DC,DC3,Gornje Jelenje,ŽC5032,DC501,0.5,45.36429,14.624004
 2905,DC,DC3,Delnice,LC58116,DC32,0.9,45.391458,14.792988
 2937,DC,DC3,Skrad,LC58030,LC58102,6.5,,
 3005,DC,DC3,Vrbovsko,LC58032,DC42,8.3,45.391432,15.10519
 3032,DC,DC3,Lišnica,LC34065,LC34064,1.4,45.45473,15.45518
 3003,DC,DC3,Duga Resa,DC1,DC23,6.7,45.459292,15.492428
-2063,DC,DC3,Popovec,DC29,AC4,1.8,,
+2063,DC,DC3,Popovec,DC29,A4,1.8,,
 3705,DC,DC7,Vuka,ŽC4107,LC44107,2.5,45.460172,18.516707
 2512,DC,DC7,Čepin,DC2,DC4247,3.5,45.545049,18.612394
 2513,DC,DC7,Osijek sj. obilaznica,DC426,DC2,1.0,45.561664,18.630554
@@ -129,10 +129,10 @@ counter_id,category,oznaka_ceste,naziv,od,do,length_km,lat,lon
 2917,DC,DC8,Kostrena,LC58054,DC40,2.2,45.294186,14.530478
 2809,DC,DC8,Pavlovac,DC66,DC403,10.6,,
 2804,DC,DC8,Mučići,ŽC5016,LC58015,0.9,45.405158,14.305749
-2801,DC,DC8,Pasjak,LC58011,AC7,3.9,45.479862,14.257832
+2801,DC,DC8,Pasjak,LC58011,A7,3.9,45.479862,14.257832
 3615,DC,DC7,Sikirevci - jug,ŽC4220,LC42049,4.3,45.086638,18.483105
 3606,DC,DC7,Vrpolje,LC44138,ŽC4202,2.9,45.211314,18.404239
-3634,DC,DC7,Đakovo obilaznica,DC515,AC5,0.8,45.32882,18.39227
+3634,DC,DC7,Đakovo obilaznica,DC515,A5,0.8,45.32882,18.39227
 5916,DC,DC8,Omiš - zapad,LC67120,DC70,0.7,43.44573,16.688154
 5902,DC,DC8,Jesenice,ŽC6162,LC67112,2.7,43.464737,16.587021
 5422,DC,DC8,Stobreč,DC410,ŽC6142,4.2,,
@@ -173,14 +173,14 @@ counter_id,category,oznaka_ceste,naziv,od,do,length_km,lat,lon
 1324,DC,DC20,Koprivnica - sjever,LC26154,DC2,4.5,46.19973,16.84765
 1340,DC,DC20,Prelog - istok,ŽC2026,LC20040,1.8,46.34068,16.63557
 1305,DC,DC20,Prelog,ŽC2038,ŽC2033,5.7,,
-1319,DC,DC20,Ivanovec,ŽC2022,AC4,1.7,46.353715,16.516356
+1319,DC,DC20,Ivanovec,ŽC2022,A4,1.7,46.353715,16.516356
 1271,DC,DC14,Zlatar Bistrica - zapad,ŽC2201,DC29,6.4,,
 1145,DC,DC14,Bedekovčina,ŽC2197,ŽC2198,5.4,46.01912,15.96018
 1143,DC,DC14,Mokrice,DC307,ŽC2197,4.1,46.01435,15.91955
 2150,DC,DC12,Haganj,DC10,DC544,11.0,,
 2143,DC,DC10,Tremovački potok,DC28,DC22,11.1,,
 2030,DC,DC10,Vrbovec obilaznica,ŽC3034,ŽC3079,4.8,,
-2008,DC,DC10,Sveta Helena,AC4,ŽC3034,8.0,,
+2008,DC,DC10,Sveta Helena,A4,ŽC3034,8.0,,
 2111,DC,DC26,Čazma - istok,DC43,ŽC3082,7.0,,
 2144,DC,DC26,Cerina,ŽC3284,DC43,4.7,45.7724,16.5738
 2036,DC,DC26,Konak,DC10,LC31069,3.8,45.865016,16.454091
@@ -221,13 +221,13 @@ counter_id,category,oznaka_ceste,naziv,od,do,length_km,lat,lon
 1702,DC,DC32,Smrečje,LC58005,ŽC5185,1.3,45.535158,14.651
 1701,DC,DC32,Prezid,GP,DC305,8.7,,
 3209,DC,DC31,Donje Taborište,ŽC3194,LC33029,3.2,,
-2016,DC,DC31,Kurilovec,AC11,LC31199,11.3,45.68412,16.0557
+2016,DC,DC31,Kurilovec,A11,LC31199,11.3,45.68412,16.0557
 3311,DC,DC30,Hrvatska Kostajnica,LC33159,DC47,0.8,45.232657,16.530073
 3205,DC,DC30,Budičina,ŽC3201,LC33053,0.7,,
 3208,DC,DC30,Brest Pokupski,ŽC3242,DC37,1.8,45.45205,16.26068
 2020,DC,DC30,Žažina,DC36,ŽC3156,0.3,45.514422,16.249197
 2019,DC,DC30,Lekenik,ŽC3292,LC33006,4.7,45.581152,16.212676
-2043,DC,DC30,Petina,AC3,DC430,0.9,,
+2043,DC,DC30,Petina,A3,DC430,0.9,,
 2004,DC,DC29,Kašina,ŽC2224,DC3,14.1,45.93243,16.114435
 3201,DC,DC36,Novo Selo Palanječko,DC37,DC232,10.3,45.488133,16.442426
 2021,DC,DC36,Stupno,DC30,DC37,9.4,,
@@ -244,7 +244,7 @@ counter_id,category,oznaka_ceste,naziv,od,do,length_km,lat,lon
 2402,DC,DC34,Donji Miholjac - istok,DC53,LC44016,9.2,,
 2419,DC,DC34,Donji Miholjac obilaznica,ŽC4032,DC53,2.5,45.74657,18.16528
 2411,DC,DC34,Podravska Moslavina,ŽC4030,ŽC4031,8.1,45.765266,18.028231
-5322,DC,DC33,Dubrava Šibenska,AC1,DC8,4.8,43.734294,15.931262
+5322,DC,DC33,Dubrava Šibenska,A1,DC8,4.8,43.734294,15.931262
 1310,DC,DC41,Peteranec,ŽC2114,ŽC2113,1.3,46.19863,16.90018
 1401,DC,DC41,Gola,ŽC2116,ŽC2091,12.5,,
 5903,DC,DC39,Gornja Brela,ŽC6166,LC67134,7.3,43.407834,16.908954
@@ -259,7 +259,7 @@ counter_id,category,oznaka_ceste,naziv,od,do,length_km,lat,lon
 3202,DC,DC37,Novo Selište,DC30,ŽC3198,2.3,45.439022,16.246794
 3203,DC,DC37,Petrinja,DC224,LC33051,3.3,45.44178,16.33533
 3215,DC,DC37,Sisak,DC36,DC224,6.1,45.44813,16.36903
-2127,DC,DC36,Popovača - zapad,AC3,ŽC3124,2.9,45.56722,16.61973
+2127,DC,DC36,Popovača - zapad,A3,ŽC3124,2.9,45.56722,16.61973
 2117,DC,DC36,Stružec,ŽC3161,LC33017,0.8,,
 2806,DC,DC44,Lupoglav - sjever,LC50080,ŽC5014,3.4,45.357962,14.101638
 2706,DC,DC44,Fontana,LC50029,ŽC5013,2.9,45.40508,13.95193
@@ -273,14 +273,14 @@ counter_id,category,oznaka_ceste,naziv,od,do,length_km,lat,lon
 1314,DC,DC43,Hampovica,ŽC2183,ŽC2236,9.8,46.015649,16.948873
 4314,DC,DC42,Čatrnja,LC34161,DC1,2.0,44.96047,15.64233
 4306,DC,DC42,Saborsko - istok,ŽC5113,DC429,24.1,,
-3043,DC,DC42,Oštarije,AC1,LC34134,1.2,,
+3043,DC,DC42,Oštarije,A1,LC34134,1.2,,
 3010,DC,DC42,Sveti Petar,LC34099,ŽC3254,3.9,,
-3041,DC,DC42,Gomirje,AC6,LC58038,0.9,45.3628,15.09242
+3041,DC,DC42,Gomirje,A6,LC58038,0.9,45.3628,15.09242
 1311,DC,DC41,Sokolovac,LC26073,ŽC2181,0.5,46.107794,16.709016
 2712,DC,DC48,Tinjan,LC50190,LC50099,1.1,,
 3207,DC,DC47,Hrv. Kostajnica - zapad,DC30,LC33165,6.6,,
 3308,DC,DC47,Slabinja,LC33177,ŽC3264,13.6,,
-3306,DC,DC47,Bročice,AC3,ŽC3250,3.3,45.305844,16.949369
+3306,DC,DC47,Bročice,A3,ŽC3250,3.3,45.305844,16.949369
 3402,DC,DC47,Jagma,ŽC4236,ŽC4112,2.0,,
 3810,DC,DC46,Tovarnik,ŽC4233,GP,2.1,45.160412,19.164485
 3804,DC,DC46,Ilača - zapad,ŽC4197,LC46033,2.3,,
@@ -300,12 +300,12 @@ counter_id,category,oznaka_ceste,naziv,od,do,length_km,lat,lon
 3515,DC,DC51,Oblakovac,DC38,LC41019,8.8,45.344128,17.490816
 3524,DC,DC51,Eminovci,LC41033,DC38,3.2,45.35652,17.72953
 3530,DC,DC51,Bektež,ŽC4117,LC41045,2.4,45.3957,17.92062
-4905,DC,DC50,Sveti Rok,AC1,LC59116,1.5,44.380525,15.643391
-4931,DC,DC50,Medak - jug,DC25,AC1,28.5,,
-4225,DC,DC50,Gospić - jug,DC25,AC1,28.5,44.5303,15.40285
+4905,DC,DC50,Sveti Rok,A1,LC59116,1.5,44.380525,15.643391
+4931,DC,DC50,Medak - jug,DC25,A1,28.5,,
+4225,DC,DC50,Gospić - jug,DC25,A1,28.5,44.5303,15.40285
 4219,DC,DC50,Perušić,ŽC5154,DC25,5.6,44.6374,15.39222
 4205,DC,DC50,Ličko Lešće,ŽC5144,ŽC5147,2.3,44.802925,15.326257
-4203,DC,DC50,Otočac (Brlog),AC1,ŽC5140,4.0,44.876752,15.204911
+4203,DC,DC50,Otočac (Brlog),A1,ŽC5140,4.0,44.876752,15.204911
 4202,DC,DC50,Brlog,LC59016,ŽC5127,2.9,,
 3531,DC,DC49,Batrina - istok,ŽC4158,ŽC4244,2.2,45.17388,17.6803
 3509,DC,DC49,Batrina - sjever,ŽC4185,ŽC4158,4.9,,
@@ -356,7 +356,7 @@ counter_id,category,oznaka_ceste,naziv,od,do,length_km,lat,lon
 3904,DC,DC66,Loborika,DC401,LC50170,2.1,,
 2831,DC,DC64,Vozilići - sjever,DC500,DC66,1.4,45.16265,14.15197
 2820,DC,DC64,Pićan,LC50086,LC50123,1.6,45.190907,14.077319
-6101,DC,DC62,Nova Sela,AC10,LC69008,2.0,,
+6101,DC,DC62,Nova Sela,A10,LC69008,2.0,,
 4003,DC,DC100,Ćunski,LC58115,ŽC5157,6.3,44.589655,14.407823
 4006,DC,DC100,Cres,DC101,ŽC5124,2.3,44.97533,14.41253
 4001,DC,DC100,Predošćica,LC58084,DC101,10.1,,
@@ -424,7 +424,7 @@ counter_id,category,oznaka_ceste,naziv,od,do,length_km,lat,lon
 1805,DC,DC228,Kamanje,ŽC3097,ŽC3296,7.5,45.644586,15.441877
 1243,DC,DC227,Brezje,ŽC2015,DC209,2.4,46.41358,16.40743
 1002,DC,DC227,Štrigova,GP,ŽC2007,2.8,,
-1925,DC,DC225,Zaprešić - istok,ŽC2186,AC2,4.1,,
+1925,DC,DC225,Zaprešić - istok,ŽC2186,A2,4.1,,
 1924,DC,DC225,Šenkovec - istok,ŽC3033,ŽC3035,1.2,,
 3309,DC,DC224,Gornji Hrastovac,LC33126,LC33117,5.3,,
 3304,DC,DC224,Sunja,ŽC3244,ŽC3211,1.9,45.35705,16.549073
@@ -445,12 +445,12 @@ counter_id,category,oznaka_ceste,naziv,od,do,length_km,lat,lon
 2716,DC,DC303,Sošići,LC50128,DC75,1.0,45.10833,13.76283
 2711,DC,DC302,Žbandaj,LC50089,ŽC5072,3.6,45.21633,13.65762
 2720,DC,DC301,Bužinija - jug,DC75,ŽC5070,3.7,,
-2718,DC,DC300,Buje - zapad,AC9,ŽC5070,1.4,,
+2718,DC,DC300,Buje - zapad,A9,ŽC5070,1.4,,
 2705,DC,DC300,Grando,LC50006,LC50008,2.8,,
 6503,DC,DC237,Zaton Doli,ŽC6227,ŽC6295,6.1,42.835776,17.745685
 6501,DC,DC236,Klek,DC8,ŽC6279,5.3,42.94192,17.56835
 3316,DC,DC232,Drenov Bok,ŽC3249,DC47,12.8,45.27708,16.86385
-1933,DC,DC231,Sveta Nedelja,ŽC3061,AC3,0.6,45.800862,15.782704
+1933,DC,DC231,Sveta Nedelja,ŽC3061,A3,0.6,45.800862,15.782704
 1127,DC,DC229,Zagorska Sela,LC22025,DC205,4.0,46.09557,15.63498
 1934,DC,DC228,Mahićno,ŽC3143,DC1,6.4,45.522856,15.540841
 4820,DC,DC424,Gaženica,DC8,DC422,3.9,,
@@ -465,10 +465,10 @@ counter_id,category,oznaka_ceste,naziv,od,do,length_km,lat,lon
 5444,DC,DC409,Divulje,DC8,DC8,6.3,43.53737,16.3039
 2035,DC,DC408,Velika Gorica sj. obilaz.,zr. luka,DC30,3.8,,
 4827,DC,DC407,Zadar,luka,DC8,3.8,,
-2845,DC,DC403,Škurinje,AC7,DC8,2.1,,
+2845,DC,DC403,Škurinje,A7,DC8,2.1,,
 3911,DC,DC401,Pula aerodrom,DC66,ŽC5120,1.6,,
 2123,DC,DC318,Klokočevac,DC28,DC43,6.0,45.93162,16.7851
-1953,DC,DC310,Jastrebarsko,LC31139,AC1,4.6,45.6565,15.65448
+1953,DC,DC310,Jastrebarsko,LC31139,A1,4.6,45.6565,15.65448
 2533,DC,DC517,Beli Manastir obilaznica,ŽC4293,DC550,0.6,45.77195,18.5845
 6701,DC,DC516,Pločice,DC8,ŽC6240,4.6,,
 3621,DC,DC515,Bračevci,LC44100,LC44101,3.4,45.435497,18.265604
@@ -480,7 +480,7 @@ counter_id,category,oznaka_ceste,naziv,od,do,length_km,lat,lon
 4917,DC,DC503,Kakma,LC63126,LC63119,1.5,,
 4924,DC,DC502,Smilčić - istok,ŽC6023,ŽC6019,6.6,,
 2918,DC,DC501,Križišće,ŽC5063,ŽC5068,3.6,45.267595,14.607165
-2926,DC,DC501,čv. Oštrovica - jug,AC6,AC7,7.1,45.30068,14.58395
+2926,DC,DC501,čv. Oštrovica - jug,A6,A7,7.1,45.30068,14.58395
 2811,DC,DC500,Vranja,LC50084,LC50087,5.3,45.310149,14.133999
 2062,DC,DC430,Selnica Šćitarjevska,DC30,zr. luka,2.1,,
 4311,DC,DC429,Jezerce,LC59025,DC1,9.9,44.86633,15.63875
@@ -501,102 +501,102 @@ counter_id,category,oznaka_ceste,naziv,od,do,length_km,lat,lon
 2415,DC,DC517,Harkanovci,LC44050,LC44020,2.8,45.58928,18.3323
 2403,DC,DC517,Belišće - sjever,ŽC4033,LC44026,2.1,45.72068,18.432963
 2504,DC,DC517,Majiške Međe,ŽC4041,LC44030,1.2,,
-4216,AC,AC1,Otočac - jug,čv. Otočac,čv. Perušić,32.1,,
-4215,AC,AC1,Žuta Lokva - jug,čv. Žuta Lokva,čv. Otočac,11.5,,
-4214,AC,AC1,Brinje - jug,čv. Brinje,čv. Žuta Lokva,11.1,,
-3025,AC,AC1,Ogulin - jug,čv. Ogulin,čv. Brinje,28.3,,
-3009,AC,AC1,čv. Bosiljevo 2 - jug,čv. Bosiljevo 2,čv. Ogulin,21.1,,
-3021,AC,AC1,Bosiljevo 1 - zapad,čv. Bosiljevo 1,čv. Bosiljevo 2,3.9,,
-3027,AC,AC1,Novigrad - zapad,čv. Novigrad,čv. Bosiljevo 1,13.6,,
-1804,AC,AC1,Karlovac - jug,čv. Karlovac,čv. Novigrad,11.5,,
-1920,AC,AC1,Jastrebarsko - jug,čv. Jastrebarsko,čv. Karlovac,18.2,,
-1931,AC,AC1,Zdenčina - jug,čv. Zdenčina,čv. Jastrebarsko,6.7,,
-1916,AC,AC1,Lučko - jug,čv. Lučko,čv. Zdenčina,15.4,,
+4216,AC,A1,Otočac - jug,čv. Otočac,čv. Perušić,32.1,,
+4215,AC,A1,Žuta Lokva - jug,čv. Žuta Lokva,čv. Otočac,11.5,,
+4214,AC,A1,Brinje - jug,čv. Brinje,čv. Žuta Lokva,11.1,,
+3025,AC,A1,Ogulin - jug,čv. Ogulin,čv. Brinje,28.3,,
+3009,AC,A1,čv. Bosiljevo 2 - jug,čv. Bosiljevo 2,čv. Ogulin,21.1,,
+3021,AC,A1,Bosiljevo 1 - zapad,čv. Bosiljevo 1,čv. Bosiljevo 2,3.9,,
+3027,AC,A1,Novigrad - zapad,čv. Novigrad,čv. Bosiljevo 1,13.6,,
+1804,AC,A1,Karlovac - jug,čv. Karlovac,čv. Novigrad,11.5,,
+1920,AC,A1,Jastrebarsko - jug,čv. Jastrebarsko,čv. Karlovac,18.2,,
+1931,AC,A1,Zdenčina - jug,čv. Zdenčina,čv. Jastrebarsko,6.7,,
+1916,AC,A1,Lučko - jug,čv. Lučko,čv. Zdenčina,15.4,,
 1147,DC,DC677,Lepajci,LCepajci,ŽC2160,3.3,46.112794,15.891711
 2146,DC,DC548,Bjelovar istočna obilaznica,DC43,DC28,4.5,45.90622,16.87667
 4927,DC,DC547,Obrovac,DC54,DC27,3.0,44.2163,15.66723
 1942,DC,DC546,Brlenić,ŽC3297,LC31136,3.7,45.62832,15.55158
 2147,DC,DC544,Farkaševac,DC12,ŽC3042,1.1,45.88647,16.6339
-5417,AC,AC1,Vučevica - jug,čv. Vučevica,čv. Dugopolje,14.1,,
-5411,AC,AC1,Prgomet - jug,čv. Prgomet,čv. Vučevica,14.2,,
-5410,AC,AC1,Vrpolje - jug,čv. Vrpolje,čv. Prgomet,17.5,,
-5447,AC,AC1,Podi - jug,čv. Podi,čv. Vrpolje,7.0,,
-5316,AC,AC1,Šibenik - jug,čv. Šibenik,čv. Podi,7.5,,
-5315,AC,AC1,Skradin - jug,čv. Skradin,čv. Šibenik,9.2,,
-5314,AC,AC1,Pirovac - jug,čv. Pirovac,čv. Skradin,9.8,,
-5313,AC,AC1,Benkovac - jug,čv. Benkovac,čv. Pirovac,21.5,,
-4921,AC,AC1,Zadar 2 - jug,čv. Zadar 2,čv. Benkovac,16.4,,
-4809,AC,AC1,Zadar 1 - jug,čv. Zadar 1,čv. Zadar 2,9.0,,
-4806,AC,AC1,Posedarje - jug,čv. Posedarje,čv. Zadar 1,3.6,,
-4805,AC,AC1,Maslenica - jug,čv. Maslenica,čv. Posedarje,7.2,,
-4909,AC,AC1,Sveti Rok - jug,čv. Sveti Rok,čv. Maslenica,32.7,,
-4903,AC,AC1,Gornja Ploča - jug,čv. Gornja Ploča,čv. Sveti Rok,5.6,,
-4919,AC,AC1,Gospić - jug,čv. Gospić,čv. Gornja Ploča,23.0,,
-4217,AC,AC1,Perušić - jug,čv. Perušić,čv. Gospić,11.2,,
-2114,AC,AC3,Ivanić Grad - istok,čv. Ivanić Grad,čv. Križ,9.5,,
-2027,AC,AC3,Zagreb (istok) - istok,čv. Rugvica,čv. Ivanić Grad,16.5,,
-1910,AC,AC3,Bobovica - zapad,gr. Slovenije,čv. Bobovica,2.5,,
-1904,AC,AC2,Zaprešić - sjever,čv. Mokrice,čv. Zaprešić,16.5,,
-1115,AC,AC2,Mokrice - sjever,čv. Začretje,čv. Mokrice,12.8,,
-1116,AC,AC2,Začretje - sjever,čv. Krapina,čv. Začretje,4.8,,
-1113,AC,AC2,Krapina - sjever,čv. Đurmanec,čv. Krapina,10.3,,
-1114,AC,AC2,Đurmanec - sjever,čv. Trakošćan,čv. Đurmanec,7.5,,
-6030,AC,AC1,čv. Ploče - jug,čv. Ploče,Karamatići,5.4,,
-6028,AC,AC1,Vrgorac - jug,čv. Vrgorac,čv. Ploče,10.3,,
-6021,AC,AC1,Ravča - jug,čv. Ravča,čv. Vrgorac,9.7,,
-6017,AC,AC1,Zagvozd - jug,čv. Zagvozd,čv. Ravča,29.7,,
-6015,AC,AC1,Šestanovac - jug,čv. Šestanovac,čv. Zagvozd,11.5,,
-5912,AC,AC1,Blato na Cetini - jug,čv. Blato na Cetini,čv. Šestanovac,6.9,,
-5911,AC,AC1,Bisko - jug,čv. Bisko,čv. Blato na Cetini,18.1,,
-5517,AC,AC1,Dugopolje - jug,čv. Dugopolje,čv. Bisko,10.2,,
-1303,AC,AC4,Čakovec - sjever,čv. Goričan,čv. Čakovec,14.0,,
-3807,AC,AC3,Spačva - istok,čv. Spačva,čv. Lipovac,12.8,,
-3716,AC,AC3,Županja - istok,čv. Županja,čv. Spačva,17.2,,
-3714,AC,AC3,Babina Greda - istok,čv. Babina Greda,čv. Županja,12.2,,
-3613,AC,AC3,Velika Kopanica - istok,čv. Velika Kopanica,čv. Babina Greda,12.6,,
-3617,AC,AC3,čv. Sredanci - istok,čv. Sredanci,čv. Velika Kopanica,7.5,,
-3609,AC,AC3,Slavonski Brod (istok) - istok,čv. Slavonski Brod (istok),čv. Sredanci,20.1,,
-3511,AC,AC3,Slavonski Brod (zapad) - istok,čv. Slavonski Brod (zap.),čv. Slavonski Brod (ist.),11.5,,
-3514,AC,AC3,Lužani - istok,čv. Lužani,čv. Slavonski Brod (zapad),20.3,,
-3510,AC,AC3,Nova Gradiška - istok,čv. Nova Gradiška,čv. Lužani,22.5,,
-3407,AC,AC3,Okučani - istok,čv. Okučani,čv. Nova Gradiška,15.4,,
-3405,AC,AC3,Novska - istok,čv. Novska,čv. Okučani,24.8,,
-3323,AC,AC3,Lipovljani - istok,čv. Lipovljani,čv. Novska,6.8,,
-3302,AC,AC3,Kutina - istok,čv. Kutina,čv. Lipovljani,14.3,,
-2118,AC,AC3,Popovača - istok,čv. Popovača,čv. Kutina,17.7,,
-2121,AC,AC3,Križ - istok,čv. Križ,čv. Popovača,13.4,,
-2910,AC,AC6,Delnice - zapad,čv. Delnice,čv. Vrata,8.9,,
-2906,AC,AC6,Ravna Gora - zapad,čv. Ravna Gora,čv. Delnice,11.0,,
-3006,AC,AC6,Vrbovsko - zapad,čv. Vrbovsko,čv. Ravna Gora,15.3,,
-3022,AC,AC6,čv. Bosiljevo 2 - zapad,čv. Bosiljevo 2,čv. Vrbovsko,13.8,,
-3629,AC,AC5,čv. Sredanci - jug,čv. Sredanci,čv. Svilaj,2.6,,
-3616,AC,AC5,Đakovo - jug,čv. Đakovo,čv. Sredanci,21.0,,
-3620,AC,AC5,Čepin - jug,čv. Čepin,čv. Đakovo,23.8,,
-2515,AC,AC5,Osijek - jug,čv. Osijek,čv. Čepin,8.8,,
-2528,AC,AC5,Beli Manastir - jug,čv. Beli Manastir,čv. Osijek,25.1,,
-2002,AC,AC4,Sveta Helena - sjever,čv. Komin,čv. Sveta Helena,10.6,,
-1229,AC,AC4,Komin - sjever,čv. Breznički Hum,čv. Komin,12.3,,
-1225,AC,AC4,Breznički Hum - sjever,čv. Novi Marof,čv. Breznički Hum,9.7,,
-1220,AC,AC4,Novi Marof - sjever,čv. Varaždinske Toplice,čv. Novi Marof,8.3,,
-1215,AC,AC4,Varaždinske Toplice - sjever,čv. Varaždin,čv. Varaždinske Toplice,6.3,,
-1212,AC,AC4,Varaždin - sjever,čv. Ludbreg,čv. Varaždin,7.2,,
-1306,AC,AC4,Ludbreg - sjever,čv. Čakovec,čv. Ludbreg,8.2,,
-2739,AC,AC9,Medaki - jug,čv. Medaki,čv. Kanfanar,7.4,,
-2737,AC,AC9,Baderna - jug,čv. Baderna,čv. Medaki,7.7,,
-2735,AC,AC9,Višnjan - jug,čv. Višnjan,čv. Baderna,7.6,,
-2733,AC,AC9,Nova Vas - jug,čv. Nova Vas,čv. Višnjan,14.3,,
-2731,AC,AC9,Buje - jug,čv. Buje,čv. Nova Vas,6.2,,
-2729,AC,AC9,Umag - jug,čv. Umag,čv. Buje,6.0,,
-2830,AC,AC8,Vranja - istok,čv. Vranja,čv. Veprinac,9.7,,
-2828,AC,AC8,Lupoglav - istok,čv. Lupoglav,čv. Vranja,5.9,,
-2826,AC,AC8,Cerovlje - istok,čv. Cerovlje,čv. Lupoglav,12.8,,
-2824,AC,AC8,Ivoli - istok,čv. Ivoli,čv. Cerovlje,4.9,,
-2745,AC,AC8,Rogovići - istok,čv. Rogovići,čv. Ivoli,5.8,,
-2743,AC,AC8,Žminj - istok,čv. Žminj,čv. Rogovići,10.9,,
-2741,AC,AC8,Kanfanar - istok,čv. Kanfanar,čv. Žminj,7.3,,
-2818,AC,AC7,NP Rupa,čv. Rupa,čv. Jurdani,9.5,,
-2933,AC,AC6,Oštrovica - zapad,čv. Oštrovica,čv. Kikovica (Rijeka),9.0,,
-2915,AC,AC6,Vrata - zapad,čv. Vrata,čv. Oštrovica,12.4,,
+5417,AC,A1,Vučevica - jug,čv. Vučevica,čv. Dugopolje,14.1,,
+5411,AC,A1,Prgomet - jug,čv. Prgomet,čv. Vučevica,14.2,,
+5410,AC,A1,Vrpolje - jug,čv. Vrpolje,čv. Prgomet,17.5,,
+5447,AC,A1,Podi - jug,čv. Podi,čv. Vrpolje,7.0,,
+5316,AC,A1,Šibenik - jug,čv. Šibenik,čv. Podi,7.5,,
+5315,AC,A1,Skradin - jug,čv. Skradin,čv. Šibenik,9.2,,
+5314,AC,A1,Pirovac - jug,čv. Pirovac,čv. Skradin,9.8,,
+5313,AC,A1,Benkovac - jug,čv. Benkovac,čv. Pirovac,21.5,,
+4921,AC,A1,Zadar 2 - jug,čv. Zadar 2,čv. Benkovac,16.4,,
+4809,AC,A1,Zadar 1 - jug,čv. Zadar 1,čv. Zadar 2,9.0,,
+4806,AC,A1,Posedarje - jug,čv. Posedarje,čv. Zadar 1,3.6,,
+4805,AC,A1,Maslenica - jug,čv. Maslenica,čv. Posedarje,7.2,,
+4909,AC,A1,Sveti Rok - jug,čv. Sveti Rok,čv. Maslenica,32.7,,
+4903,AC,A1,Gornja Ploča - jug,čv. Gornja Ploča,čv. Sveti Rok,5.6,,
+4919,AC,A1,Gospić - jug,čv. Gospić,čv. Gornja Ploča,23.0,,
+4217,AC,A1,Perušić - jug,čv. Perušić,čv. Gospić,11.2,,
+2114,AC,A3,Ivanić Grad - istok,čv. Ivanić Grad,čv. Križ,9.5,,
+2027,AC,A3,Zagreb (istok) - istok,čv. Rugvica,čv. Ivanić Grad,16.5,,
+1910,AC,A3,Bobovica - zapad,gr. Slovenije,čv. Bobovica,2.5,,
+1904,AC,A2,Zaprešić - sjever,čv. Mokrice,čv. Zaprešić,16.5,,
+1115,AC,A2,Mokrice - sjever,čv. Začretje,čv. Mokrice,12.8,,
+1116,AC,A2,Začretje - sjever,čv. Krapina,čv. Začretje,4.8,,
+1113,AC,A2,Krapina - sjever,čv. Đurmanec,čv. Krapina,10.3,,
+1114,AC,A2,Đurmanec - sjever,čv. Trakošćan,čv. Đurmanec,7.5,,
+6030,AC,A1,čv. Ploče - jug,čv. Ploče,Karamatići,5.4,,
+6028,AC,A1,Vrgorac - jug,čv. Vrgorac,čv. Ploče,10.3,,
+6021,AC,A1,Ravča - jug,čv. Ravča,čv. Vrgorac,9.7,,
+6017,AC,A1,Zagvozd - jug,čv. Zagvozd,čv. Ravča,29.7,,
+6015,AC,A1,Šestanovac - jug,čv. Šestanovac,čv. Zagvozd,11.5,,
+5912,AC,A1,Blato na Cetini - jug,čv. Blato na Cetini,čv. Šestanovac,6.9,,
+5911,AC,A1,Bisko - jug,čv. Bisko,čv. Blato na Cetini,18.1,,
+5517,AC,A1,Dugopolje - jug,čv. Dugopolje,čv. Bisko,10.2,,
+1303,AC,A4,Čakovec - sjever,čv. Goričan,čv. Čakovec,14.0,,
+3807,AC,A3,Spačva - istok,čv. Spačva,čv. Lipovac,12.8,,
+3716,AC,A3,Županja - istok,čv. Županja,čv. Spačva,17.2,,
+3714,AC,A3,Babina Greda - istok,čv. Babina Greda,čv. Županja,12.2,,
+3613,AC,A3,Velika Kopanica - istok,čv. Velika Kopanica,čv. Babina Greda,12.6,,
+3617,AC,A3,čv. Sredanci - istok,čv. Sredanci,čv. Velika Kopanica,7.5,,
+3609,AC,A3,Slavonski Brod (istok) - istok,čv. Slavonski Brod (istok),čv. Sredanci,20.1,,
+3511,AC,A3,Slavonski Brod (zapad) - istok,čv. Slavonski Brod (zap.),čv. Slavonski Brod (ist.),11.5,,
+3514,AC,A3,Lužani - istok,čv. Lužani,čv. Slavonski Brod (zapad),20.3,,
+3510,AC,A3,Nova Gradiška - istok,čv. Nova Gradiška,čv. Lužani,22.5,,
+3407,AC,A3,Okučani - istok,čv. Okučani,čv. Nova Gradiška,15.4,,
+3405,AC,A3,Novska - istok,čv. Novska,čv. Okučani,24.8,,
+3323,AC,A3,Lipovljani - istok,čv. Lipovljani,čv. Novska,6.8,,
+3302,AC,A3,Kutina - istok,čv. Kutina,čv. Lipovljani,14.3,,
+2118,AC,A3,Popovača - istok,čv. Popovača,čv. Kutina,17.7,,
+2121,AC,A3,Križ - istok,čv. Križ,čv. Popovača,13.4,,
+2910,AC,A6,Delnice - zapad,čv. Delnice,čv. Vrata,8.9,,
+2906,AC,A6,Ravna Gora - zapad,čv. Ravna Gora,čv. Delnice,11.0,,
+3006,AC,A6,Vrbovsko - zapad,čv. Vrbovsko,čv. Ravna Gora,15.3,,
+3022,AC,A6,čv. Bosiljevo 2 - zapad,čv. Bosiljevo 2,čv. Vrbovsko,13.8,,
+3629,AC,A5,čv. Sredanci - jug,čv. Sredanci,čv. Svilaj,2.6,,
+3616,AC,A5,Đakovo - jug,čv. Đakovo,čv. Sredanci,21.0,,
+3620,AC,A5,Čepin - jug,čv. Čepin,čv. Đakovo,23.8,,
+2515,AC,A5,Osijek - jug,čv. Osijek,čv. Čepin,8.8,,
+2528,AC,A5,Beli Manastir - jug,čv. Beli Manastir,čv. Osijek,25.1,,
+2002,AC,A4,Sveta Helena - sjever,čv. Komin,čv. Sveta Helena,10.6,,
+1229,AC,A4,Komin - sjever,čv. Breznički Hum,čv. Komin,12.3,,
+1225,AC,A4,Breznički Hum - sjever,čv. Novi Marof,čv. Breznički Hum,9.7,,
+1220,AC,A4,Novi Marof - sjever,čv. Varaždinske Toplice,čv. Novi Marof,8.3,,
+1215,AC,A4,Varaždinske Toplice - sjever,čv. Varaždin,čv. Varaždinske Toplice,6.3,,
+1212,AC,A4,Varaždin - sjever,čv. Ludbreg,čv. Varaždin,7.2,,
+1306,AC,A4,Ludbreg - sjever,čv. Čakovec,čv. Ludbreg,8.2,,
+2739,AC,A9,Medaki - jug,čv. Medaki,čv. Kanfanar,7.4,,
+2737,AC,A9,Baderna - jug,čv. Baderna,čv. Medaki,7.7,,
+2735,AC,A9,Višnjan - jug,čv. Višnjan,čv. Baderna,7.6,,
+2733,AC,A9,Nova Vas - jug,čv. Nova Vas,čv. Višnjan,14.3,,
+2731,AC,A9,Buje - jug,čv. Buje,čv. Nova Vas,6.2,,
+2729,AC,A9,Umag - jug,čv. Umag,čv. Buje,6.0,,
+2830,AC,A8,Vranja - istok,čv. Vranja,čv. Veprinac,9.7,,
+2828,AC,A8,Lupoglav - istok,čv. Lupoglav,čv. Vranja,5.9,,
+2826,AC,A8,Cerovlje - istok,čv. Cerovlje,čv. Lupoglav,12.8,,
+2824,AC,A8,Ivoli - istok,čv. Ivoli,čv. Cerovlje,4.9,,
+2745,AC,A8,Rogovići - istok,čv. Rogovići,čv. Ivoli,5.8,,
+2743,AC,A8,Žminj - istok,čv. Žminj,čv. Rogovići,10.9,,
+2741,AC,A8,Kanfanar - istok,čv. Kanfanar,čv. Žminj,7.3,,
+2818,AC,A7,NP Rupa,čv. Rupa,čv. Jurdani,9.5,,
+2933,AC,A6,Oštrovica - zapad,čv. Oštrovica,čv. Kikovica (Rijeka),9.0,,
+2915,AC,A6,Vrata - zapad,čv. Vrata,čv. Oštrovica,12.4,,
 1335,ZC,ŽC2033,Čehovec,LC20058,DC20,3.1,46.35233,16.61455
 1334,ZC,ŽC2026,Prelog - sjever,LC20058,DC20,3.5,46.34115,16.6252
 1333,ZC,ŽC2022,Mala Subotica,LC20035,DC20,2.3,46.36703,16.52417
@@ -607,12 +607,12 @@ counter_id,category,oznaka_ceste,naziv,od,do,length_km,lat,lon
 1249,ZC,ŽC2002,Jalšovec,LC20084,DC227,1.2,46.49885,16.29997
 1939,ZC,ŽC1037,Bregana Pisarovinska,LC31186,ŽC3106,3.1,45.61777,15.85977
 2049,ZC,ŽC1036,Otok Svibovski,LC10160,LC10161,3.4,45.78095,16.15712
-2047,AC,AC11,Buševec - jug,Buševec,LCekenik,11.2,,
-2031,AC,AC11,Mraclin - jug,Mraclin,Buševec,9.0,,
-6105,AC,AC10,čv. Ploče - istok,čv. Kula Norinska,čv. Ploče,6.7,,
-3909,AC,AC9,Vodnjan (jug) - jug,čv. Vodnjan (jug),čv. Pula,6.9,,
-3907,AC,AC9,Vodnjan (sjever) - jug,čv. Vodnjan (sjever),čv. Vodnjan (jug),6.2,,
-2727,AC,AC9,Kanfanar - jug,čv. Kanfanar,čv. Vodnjan (sjever),14.5,,
+2047,AC,A11,Buševec - jug,Buševec,LCekenik,11.2,,
+2031,AC,A11,Mraclin - jug,Mraclin,Buševec,9.0,,
+6105,AC,A10,čv. Ploče - istok,čv. Kula Norinska,čv. Ploče,6.7,,
+3909,AC,A9,Vodnjan (jug) - jug,čv. Vodnjan (jug),čv. Pula,6.9,,
+3907,AC,A9,Vodnjan (sjever) - jug,čv. Vodnjan (sjever),čv. Vodnjan (jug),6.2,,
+2727,AC,A9,Kanfanar - jug,čv. Kanfanar,čv. Vodnjan (sjever),14.5,,
 1404,ZC,ŽC2114,Molve,LC26037,DC210,3.3,46.12343,17.03022
 1318,ZC,ŽC2114,Sigetec,ŽC2113,LC26032,2.0,46.192012,16.913831
 1262,ZC,ŽC2101,Nova Ves Petrijanečka,LC25070,DC2,1.3,,
@@ -672,7 +672,7 @@ counter_id,category,oznaka_ceste,naziv,od,do,length_km,lat,lon
 2053,ZC,ŽC3070,Rugvica,ŽC3034,DC43,4.8,45.77053,16.23257
 1951,ZC,ŽC3067,Donji Stupnik,LC10166,DC1,3.2,,
 1946,ZC,ŽC3064,Rakitje,ŽC3063,LC31101,1.7,45.80047,15.82468
-1947,ZC,ŽC3063,Bestovje,AC3,ŽC3060,2.6,45.80735,15.81142
+1947,ZC,ŽC3063,Bestovje,A3,ŽC3060,2.6,45.80735,15.81142
 1950,ZC,ŽC3061,Žitarka,ŽC3066,DC1,1.9,,
 1949,ZC,ŽC3055,Donja Reka,ŽC3104,DC1,2.9,,
 2055,ZC,ŽC3041,Kloštar Ivanić,LC31177,ŽC3074,4.2,,
@@ -767,8 +767,8 @@ counter_id,category,oznaka_ceste,naziv,od,do,length_km,lat,lon
 2840,ZC,ŽC5047,Rubeši,LC58043,ŽC5019,1.2,45.36877,14.336
 2832,ZC,ŽC5047,Bregi,ŽC5048,ŽC5052,5.4,45.345646,14.296192
 2759,ZC,ŽC5046,Novaki Pazinski,G.A.P.,LC50079,1.0,,
-2758,ZC,ŽC5042,Nova Vas,LC50046,AC9,4.0,,
-2939,ZC,ŽC5034,Ravna Gora,AC6,ŽC5069,1.0,45.37927,14.91563
+2758,ZC,ŽC5042,Nova Vas,LC50046,A9,4.0,,
+2939,ZC,ŽC5034,Ravna Gora,A6,ŽC5069,1.0,45.37927,14.91563
 2942,ZC,ŽC5033,Kuželj,G.P.,DC203,12.0,45.47837,14.80535
 2834,ZC,ŽC5025,Viškovo,ŽC5017,LC58018,1.9,45.389379,14.387194
 2833,ZC,ŽC5021,Kastav,ŽC5206,ŽC5020,1.5,45.37384,14.355996
@@ -778,7 +778,7 @@ counter_id,category,oznaka_ceste,naziv,od,do,length_km,lat,lon
 3035,ZC,ŽC5191,Jezerane - zapad,ŽC5094,DC23,25.7,45.0551,15.20515
 2941,ZC,ŽC5191,Sunger,ŽC5068,LC58060,5.2,45.32628,14.81542
 4932,ZC,ŽC5165,Gornja Ploča,LC59111,LC59113,2.3,,
-4220,ZC,ŽC5155,Perušić zona,AC1,LC59146,3.8,44.66532,15.41913
+4220,ZC,ŽC5155,Perušić zona,A1,LC59146,3.8,44.66532,15.41913
 4222,ZC,ŽC5140,Krasno - istok,ŽC5126,ŽC5146,5.7,44.82017,15.06876
 4108,ZC,ŽC5139,Rab,LC58105,DC105,3.8,44.761072,14.764098
 4221,ZC,ŽC5128,Podum,LC59034,DC50,2.2,44.8793,15.25558
@@ -802,9 +802,9 @@ counter_id,category,oznaka_ceste,naziv,od,do,length_km,lat,lon
 2702,ZC,ŽC5220,Kaštel,DC510,LC50012,3.2,45.444182,13.655949
 4923,ZC,ŽC5217,Mazin - jug,LC59118,DC1,21.6,,
 4305,ZC,ŽC5217,Donji Lapac,ŽC5218,ŽC5168,3.6,,
-2761,ZC,ŽC5209,Medaki,AC9,DC75,1.7,,
+2761,ZC,ŽC5209,Medaki,A9,DC75,1.7,,
 2721,ZC,ŽC5209,Baderna - sjever,LC50095,DC48,2.7,45.216,13.75257
-2911,ZC,ŽC5205,Mavrinci,AC6,LC58110,4.8,45.34317,14.50155
+2911,ZC,ŽC5205,Mavrinci,A6,LC58110,4.8,45.34317,14.50155
 6024,ZC,ŽC6182,Kamenmost,DC60,LC67162,2.0,43.429298,17.198879
 5925,ZC,ŽC6166,Omiš,DC8,LC67123,4.6,43.44752,16.6945
 5920,ZC,ŽC6161,Supetar,DC113,LC67171,5.3,43.3809,16.5667
@@ -833,7 +833,7 @@ counter_id,category,oznaka_ceste,naziv,od,do,length_km,lat,lon
 6107,ZC,ŽC6217,Banja,DC8,LC69009,2.4,43.04423,17.50217
 6034,ZC,ŽC6209,Orah,LC67207,G.P.,0.7,43.2161,17.42448
 6035,ZC,ŽC6208,Staševica,LC69085,ŽC6276,6.8,43.13627,17.43262
-6023,ZC,ŽC6208,Vrgorac,AC1,ŽC6211,0.9,43.193037,17.379942
+6023,ZC,ŽC6208,Vrgorac,A1,ŽC6211,0.9,43.193037,17.379942
 6025,ZC,ŽC6199,Gornje Igrane,DC62,DC512,11.2,43.236934,17.145951
 6041,ZC,ŽC6198,Podgora,DC512,DC8,5.4,,
 5921,ZC,ŽC6191,Bol,ŽC6190,DC115,19.6,43.2639,16.61397

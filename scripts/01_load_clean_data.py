@@ -21,8 +21,8 @@ DATA_DIR = PROJECT_ROOT / "data"
 INTERMEDIATE_DIR = DATA_DIR / "intermediate"
 INTERMEDIATE_DIR.mkdir(parents=True, exist_ok=True)
 YEARS = [2021, 2022, 2023, 2024]
-CATEGORY_PREFIX = {"DC": "DC", "AC": "AC", "ZC": "ŽC", "LC": "LC"}
-REF_PREFIX_MAP = {"D": "DC", "A": "AC", "Ž": "ŽC", "L": "LC"}
+CATEGORY_PREFIX = {"DC": "DC", "AC": "A", "ZC": "ŽC", "LC": "LC"}
+REF_PREFIX_MAP = {"D": "DC", "A": "A", "Ž": "ŽC", "L": "LC"}
 
 
 def to_int_or_nan(value):
@@ -75,10 +75,14 @@ def normalize_ref_code(value):
 def build_full_road_code(category, road_number):
     if not road_number:
         return None
-    if any(road_number.startswith(p) for p in ("DC", "AC", "ŽC", "LC")):
+    # GIS prefiksi: DC (drzavna), A (autocesta - bez C), ŽC, LC
+    if any(road_number.startswith(p) for p in ("DC", "ŽC", "LC")):
         return road_number
-    if category == "AC" and road_number.startswith("A"):
-        return "AC" + road_number[1:]
+    if category == "AC":
+        # XLS ima 'A1' ili samo '1' u road_number; uvijek vrati 'A<broj>'
+        if road_number.startswith("A"):
+            return road_number  # vec 'A1'
+        return f"A{road_number}"
     prefix = CATEGORY_PREFIX.get(category)
     if not prefix:
         return None
@@ -95,6 +99,20 @@ def parse_ac_section_text(text):
     if len(parts) == 2:
         return parts[0].strip(), parts[1].strip()
     return s, None
+
+
+SMJER_RE = re.compile(r"-\s*(jug|sjever|istok|zapad|J|S|I|Z)\b", re.IGNORECASE)
+
+
+def extract_smjer(name):
+    """Izvuci smjer iz naziva brojaca (npr. 'Lucko - jug' -> 'jug')."""
+    if pd.isna(name):
+        return None
+    m = SMJER_RE.search(str(name))
+    if not m:
+        return None
+    s = m.group(1).lower()
+    return {"j": "jug", "s": "sjever", "i": "istok", "z": "zapad"}.get(s, s)
 
 
 def parse_promet_sheet(filepath, sheet, year, category):
@@ -134,6 +152,7 @@ def parse_promet_sheet(filepath, sheet, year, category):
             "section_desc": df[6].astype(str).str.strip() + " - " + df[7].astype(str).str.strip(),
         })
     out["oznaka_ceste"] = [build_full_road_code(c, r) for c, r in zip(out["category"], out["road_number"])]
+    out["smjer"] = out["naziv"].map(extract_smjer)
     out = out[out["counter_id"].notna()].reset_index(drop=True)
     return out
 
@@ -194,7 +213,7 @@ def main():
         quality["counters_without_gps_count"] = len(miss)
     merged = merged.drop(columns=["_merge"])
     out_cols = ["year", "category", "oznaka_ceste", "road_number", "counter_id",
-                "naziv", "pgdp", "pldp", "od", "do", "section_desc", "length_km",
+                "naziv", "smjer", "pgdp", "pldp", "od", "do", "section_desc", "length_km",
                 "brojenje", "lat", "lon", "od_loc", "do_loc", "length_km_loc", "naziv_loc"]
     for col in out_cols:
         if col not in merged.columns:

@@ -61,7 +61,7 @@ counter_id,category,oznaka_ceste,naziv,od,do,length_km,lat,lon,matched_oznaka_ce
 1316,ZC,ŽC2143,Hudovljani,LC26094,LC26094,3.8,46.078917,16.802638,ŽC2143,županijska cesta,1124,1.7176891949448536,exact_road_name,high
 1317,ZC,ŽC3002,Križevci,LC26064,ŽC3034,1.8,46.022118,16.532021,ŽC3002,županijska cesta,2230,6.6382988098138105,exact_road_name,high
 1318,ZC,ŽC2114,Sigetec,ŽC2113,LC26032,2.0,46.192012,16.913831,ŽC2114,županijska cesta,1055,0.8408389596791955,exact_road_name,high
-1319,DC,DC20,Ivanovec,ŽC2022,AC4,1.7,46.353715,16.516356,DC20,državna cesta,610,1.6367593662522923,exact_road_name,high
+1319,DC,DC20,Ivanovec,ŽC2022,A4,1.7,46.353715,16.516356,DC20,državna cesta,610,1.6367593662522923,exact_road_name,high
 1320,LC,LC20039,Prelog,LC20038,LC20091,2.5,46.3236,16.63718,LC20039,lokalna cesta,695,7.175196528585775,exact_road_name,high
 1321,ZC,ŽC2040,Kotoriba,LC20045,ŽC2041,2.2,46.34263,16.8108,ŽC2040,županijska cesta,844,3.3202700514405437,exact_road_name,high
 1322,ZC,ŽC2003,Turčišće,LC20030,ŽC2023,2.8,46.42007,16.5971,ŽC2003,županijska cesta,670,5.289052118351551,exact_road_name,high
@@ -92,7 +92,7 @@ counter_id,category,oznaka_ceste,naziv,od,do,length_km,lat,lon,matched_oznaka_ce
 1928,DC,DC1,Izimje,ŽC3102,LC31136,2.5,45.63189,15.608176,DC1,državna cesta,21,0.7544331560190697,exact_road_name,high
 1929,DC,DC1,Klinča Sela,DC543,LC31143,1.7,45.690829,15.733237,DC1,državna cesta,20,2.1367463106272035,exact_road_name,high
 1932,ZC,ŽC2186,Zaprešić - sjever,ŽC2195,ŽC2262,1.8,45.880994,15.798199,ŽC2186,županijska cesta,1218,2.921224376776559,exact_road_name,high
-1933,DC,DC231,Sveta Nedelja,ŽC3061,AC3,0.6,45.800862,15.782704,DC231,državna cesta,1593,0.3723746321356201,exact_road_name,high
+1933,DC,DC231,Sveta Nedelja,ŽC3061,A3,0.6,45.800862,15.782704,DC231,državna cesta,1593,0.3723746321356201,exact_road_name,high
 1934,DC,DC228,Mahićno,ŽC3143,DC1,6.4,45.522856,15.540841,DC228,državna cesta,1571,0.9303914410597574,exact_road_name,high
 1935,DC,DC1,Gornji Stupnik,LC31102,ŽC3061,1.9,45.754815,15.822892,DC1,državna cesta,20,3.0118345919936127,exact_road_name,high
 1936,DC,DC307,Oroslavje,LC22069,LC22069,0.5,45.990835,15.915844,DC307,državna cesta,2381,2.555516325494766,exact_road_name,high
@@ -106,13 +106,13 @@ counter_id,category,oznaka_ceste,naziv,od,do,length_km,lat,lon,matched_oznaka_ce
 1944,ZC,ŽC3106,Kupinec,LC10165,ŽC1037,6.8,45.6403,15.81367,ŽC3106,županijska cesta,2521,3.92914181359931,exact_road_name,high
 1945,ZC,ŽC3102,Volavje,DC1,LC31135,4.6,45.65345,15.60833,ŽC3102,županijska cesta,2472,0.24002887634565787,exact_road_name,high
 1946,ZC,ŽC3064,Rakitje,ŽC3063,LC31101,1.7,45.80047,15.82468,ŽC3064,županijska cesta,2363,8.315089421257527,exact_road_name,high
-1947,ZC,ŽC3063,Bestovje,AC3,ŽC3060,2.6,45.80735,15.81142,ŽC3063,županijska cesta,2352,5.741409525518824,exact_road_name,high
-1953,DC,DC310,Jastrebarsko,LC31139,AC1,4.6,45.6565,15.65448,DC310,državna cesta,2448,3.533108273114763,exact_road_name,high
+1947,ZC,ŽC3063,Bestovje,A3,ŽC3060,2.6,45.80735,15.81142,ŽC3063,županijska cesta,2352,5.741409525518824,exact_road_name,high
+1953,DC,DC310,Jastrebarsko,LC31139,A1,4.6,45.6565,15.65448,DC310,državna cesta,2448,3.533108273114763,exact_road_name,high
 1954,DC,DC1,Lug - jug,ŽC3146,DC228,5.7,45.54327,15.56995,DC1,državna cesta,21,4.074699932179811,exact_road_name,high
 2003,DC,DC3,Blažev Dol,LC31036,ŽC3016,1.2,45.93017,16.23431,DC3,državna cesta,2156,1.1219110713147837,exact_road_name,high
 2004,DC,DC29,Kašina,ŽC2224,DC3,14.1,45.93243,16.114435,DC29,državna cesta,2097,4.988546962267531,exact_road_name,high
 2015,DC,DC43,Caginec,ŽC3124,ŽC3074,1.9,45.71278,16.44982,DC43,državna cesta,4323,1.483279850753739,exact_road_name,high
-2016,DC,DC31,Kurilovec,AC11,LC31199,11.3,45.68412,16.0557,DC31,državna cesta,2441,2.3789789901203147,exact_road_name,high
+2016,DC,DC31,Kurilovec,A11,LC31199,11.3,45.68412,16.0557,DC31,državna cesta,2441,2.3789789901203147,exact_road_name,high
 2019,DC,DC30,Lekenik,ŽC3292,LC33006,4.7,45.581152,16.212676,DC30,državna cesta,2208,0.378844102056274,exact_road_name,high
 2020,DC,DC30,Žažina,DC36,ŽC3156,0.3,45.514422,16.249197,DC30,državna cesta,2208,3.7361402987171313,exact_road_name,high
 2036,DC,DC26,Konak,DC10,LC31069,3.8,45.865016,16.454091,DC26,državna cesta,1880,3.05657264458465,exact_road_name,high
@@ -133,7 +133,7 @@ counter_id,category,oznaka_ceste,naziv,od,do,length_km,lat,lon,matched_oznaka_ce
 2124,ZC,ŽC3124,Graberje Ivanićko,ŽC3125,ŽC3126,5.6,45.7078,16.476164,ŽC3124,županijska cesta,2697,0.35815399035320566,exact_road_name,high
 2125,DC,DC22,Trema,LC26069,ŽC2228,0.8,45.9746,16.5857,DC22,državna cesta,1268,7.080319098604948,exact_road_name,high
 2126,ZC,ŽC3124,Popovača,LC33018,ŽC3131,0.4,45.56752,16.63272,ŽC3124,županijska cesta,2700,1.3704293513183652,exact_road_name,high
-2127,DC,DC36,Popovača - zapad,AC3,ŽC3124,2.9,45.56722,16.61973,DC36,državna cesta,3267,0.053067516335315194,exact_road_name,high
+2127,DC,DC36,Popovača - zapad,A3,ŽC3124,2.9,45.56722,16.61973,DC36,državna cesta,3267,0.053067516335315194,exact_road_name,high
 2129,ZC,ŽC3128,Suhaja,DC26,ŽC3130,11.8,45.7316,16.63022,ŽC3128,županijska cesta,2711,8.021841776565854,exact_road_name,high
 2140,DC,DC43,Kupinovac,ŽC3025,DC28,2.7,45.94422,16.88988,DC43,državna cesta,4339,0.4621769806984766,exact_road_name,high
 2144,DC,DC26,Cerina,ŽC3284,DC43,4.7,45.7724,16.5738,DC26,državna cesta,1880,3.733219513960583,exact_road_name,high
@@ -220,7 +220,7 @@ counter_id,category,oznaka_ceste,naziv,od,do,length_km,lat,lon,matched_oznaka_ce
 2756,ZC,ŽC5011,Buzet,GP,DC44,7.3,45.43262,13.96642,ŽC5011,županijska cesta,4822,5.208015565825055,exact_road_name,high
 2757,DC,DC75,Funtana,ŽC5116,ŽC5071,5.8,45.19815,13.60307,DC75,državna cesta,7530,8.708651024999918,exact_road_name,high
 2765,DC,DC75,Vrvari,LC50046,DC302,0.7,45.2261,13.62483,DC75,državna cesta,7467,3.1913159125144124,exact_road_name,high
-2801,DC,DC8,Pasjak,LC58011,AC7,3.9,45.479862,14.257832,DC8,državna cesta,7683,2.9449802893641683,exact_road_name,high
+2801,DC,DC8,Pasjak,LC58011,A7,3.9,45.479862,14.257832,DC8,državna cesta,7683,2.9449802893641683,exact_road_name,high
 2804,DC,DC8,Mučići,ŽC5016,LC58015,0.9,45.405158,14.305749,DC8,državna cesta,7727,3.511511103744935,exact_road_name,high
 2806,DC,DC44,Lupoglav - sjever,LC50080,ŽC5014,3.4,45.357962,14.101638,DC44,državna cesta,4374,1.4214912702560847,exact_road_name,high
 2811,DC,DC500,Vranja,LC50084,LC50087,5.3,45.310149,14.133999,DC500,državna cesta,4662,2.484233369189563,exact_road_name,high
@@ -238,21 +238,21 @@ counter_id,category,oznaka_ceste,naziv,od,do,length_km,lat,lon,matched_oznaka_ce
 2838,ZC,ŽC5017,Škalnica,LC58012,LC58013,0.806,45.4688,14.29863,ŽC5017,županijska cesta,4923,0.5363455561095183,exact_road_name,high
 2839,ZC,ŽC5055,Dražice,LC58021,ŽC5028,1.7,45.3739,14.47395,ŽC5055,županijska cesta,5075,2.26407047939986,exact_road_name,high
 2840,ZC,ŽC5047,Rubeši,LC58043,ŽC5019,1.2,45.36877,14.336,ŽC5047,županijska cesta,5061,8.01080475652401,exact_road_name,high
-2842,DC,DC3,Orehovica,AC6,DC8,2.3,45.33368,14.45792,DC3,državna cesta,2114,0.4107008899249266,exact_road_name,high
+2842,DC,DC3,Orehovica,A6,DC8,2.3,45.33368,14.45792,DC3,državna cesta,2114,0.4107008899249266,exact_road_name,high
 2905,DC,DC3,Delnice,LC58116,DC32,0.9,45.391458,14.792988,DC3,državna cesta,2124,0.3460847237162217,exact_road_name,high
-2911,ZC,ŽC5205,Mavrinci,AC6,LC58110,4.8,45.34317,14.50155,ŽC5205,županijska cesta,5540,0.10843783497343878,exact_road_name,high
+2911,ZC,ŽC5205,Mavrinci,A6,LC58110,4.8,45.34317,14.50155,ŽC5205,županijska cesta,5540,0.10843783497343878,exact_road_name,high
 2917,DC,DC8,Kostrena,LC58054,DC40,2.2,45.294186,14.530478,DC8,državna cesta,7706,0.7814681085986819,exact_road_name,high
 2918,DC,DC501,Križišće,ŽC5063,ŽC5068,3.6,45.267595,14.607165,DC501,državna cesta,4801,1.7504428661387113,exact_road_name,high
 2922,DC,DC102,Omišalj,LC58065,DC129,0.8,45.195386,14.560323,DC102,državna cesta,253,5.642559273265053,exact_road_name,high
 2923,DC,DC8,Crikvenica,ŽC5091,ŽC5091,3.1,45.185064,14.684426,DC8,državna cesta,7637,1.6210865513343042,exact_road_name,high
-2926,DC,DC501,čv. Oštrovica - jug,AC6,AC7,7.1,45.30068,14.58395,DC501,državna cesta,4801,6.378660182214324,exact_road_name,high
+2926,DC,DC501,čv. Oštrovica - jug,A6,A7,7.1,45.30068,14.58395,DC501,državna cesta,4801,6.378660182214324,exact_road_name,high
 2928,DC,DC8,N. Vinodolski - sjever,ŽC5062,DC99,5.6,45.13573,14.76227,DC8,državna cesta,7637,7.358089304011467,exact_road_name,high
 2929,DC,DC8,Sibinj Krmpotski,ŽC5109,LC59001,13.3,45.052764,14.872272,DC8,državna cesta,7637,2.880383547247242,exact_road_name,high
 2934,DC,DC102,Krk,ŽC5131,ŽC5131,2.3,45.034408,14.576607,DC102,državna cesta,257,3.19546890470925,exact_road_name,high
 2935,DC,DC3,Gornje Jelenje,ŽC5032,DC501,0.5,45.36429,14.624004,DC3,državna cesta,2147,2.162939165965004,exact_road_name,high
 2936,DC,DC203,Mala Lešnica,LC58022,LC58113,9.5,45.440774,14.850036,DC203,državna cesta,814,0.2548180072295568,exact_road_name,high
 2938,DC,DC99,Drivenik,DC501,ŽC5089,6.4,45.247443,14.629839,DC99,državna cesta,9021,3.4301960393523747,exact_road_name,high
-2939,ZC,ŽC5034,Ravna Gora,AC6,ŽC5069,1.0,45.37927,14.91563,ŽC5034,županijska cesta,5004,17.407420960830013,exact_road_name,high
+2939,ZC,ŽC5034,Ravna Gora,A6,ŽC5069,1.0,45.37927,14.91563,ŽC5034,županijska cesta,5004,17.407420960830013,exact_road_name,high
 2940,ZC,ŽC5062,Fužine,DC3,ŽC5068,6.9,45.3104,14.71617,ŽC5062,županijska cesta,5083,2.029894900080843,exact_road_name,high
 2941,ZC,ŽC5191,Sunger,ŽC5068,LC58060,5.2,45.32628,14.81542,ŽC5191,županijska cesta,5508,4.062624278493936,exact_road_name,high
 2942,ZC,ŽC5033,Kuželj,G.P.,DC203,12.0,45.47837,14.80535,ŽC5033,županijska cesta,5001,6.8562477432920526,exact_road_name,high
@@ -274,7 +274,7 @@ counter_id,category,oznaka_ceste,naziv,od,do,length_km,lat,lon,matched_oznaka_ce
 3034,ZC,ŽC3176,Erdelj,LC34102,DC23,3.9,45.36785,15.3634,ŽC3176,županijska cesta,2785,7.094411316863601,exact_road_name,high
 3035,ZC,ŽC5191,Jezerane - zapad,ŽC5094,DC23,25.7,45.0551,15.20515,ŽC5191,županijska cesta,5510,5.299125491059932,exact_road_name,high
 3040,DC,DC204,Bosanci,DC3,ŽC3175,3.5,45.42172,15.2774,DC204,državna cesta,840,1.805048562285154,exact_road_name,high
-3041,DC,DC42,Gomirje,AC6,LC58038,0.9,45.3628,15.09242,DC42,državna cesta,4066,4.58049653178295,exact_road_name,high
+3041,DC,DC42,Gomirje,A6,LC58038,0.9,45.3628,15.09242,DC42,državna cesta,4066,4.58049653178295,exact_road_name,high
 3042,DC,DC541,Veliki Modruš Potok,DC6,ŽC3141,2.6,45.49923,15.39973,DC541,državna cesta,5685,0.41799399103735435,exact_road_name,high
 3101,DC,DC1,Tušilović,DC3,DC6,14.5,45.40067,15.613074,DC1,državna cesta,19,1.259972605947913,exact_road_name,high
 3102,DC,DC6,Gvozd - zapad,LC33075,ŽC3186,0.8,45.350705,15.857179,DC6,državna cesta,6053,0.520746895784851,exact_road_name,high
@@ -301,7 +301,7 @@ counter_id,category,oznaka_ceste,naziv,od,do,length_km,lat,lon,matched_oznaka_ce
 3213,ZC,ŽC3234,Ravno Rašće,DC6,LC33196,2.2,45.29982,16.13362,ŽC3234,županijska cesta,2858,5.657772159488805,exact_road_name,high
 3215,DC,DC37,Sisak,DC36,DC224,6.1,45.44813,16.36903,DC37,državna cesta,3282,0.7795482634167331,exact_road_name,high
 3304,DC,DC224,Sunja,ŽC3244,ŽC3211,1.9,45.35705,16.549073,DC224,državna cesta,1468,1.6185630637123507,exact_road_name,high
-3306,DC,DC47,Bročice,AC3,ŽC3250,3.3,45.305844,16.949369,DC47,državna cesta,4578,3.4193410282159244,exact_road_name,high
+3306,DC,DC47,Bročice,A3,ŽC3250,3.3,45.305844,16.949369,DC47,državna cesta,4578,3.4193410282159244,exact_road_name,high
 3311,DC,DC30,Hrvatska Kostajnica,LC33159,DC47,0.8,45.232657,16.530073,DC30,državna cesta,2195,1.9362595320551448,exact_road_name,high
 3312,ZC,ŽC3168,Poljana,ŽC4236,ŽC3167,5.6,45.47035,16.9777,ŽC3168,županijska cesta,2770,9.38191507513913,exact_road_name,high
 3313,ZC,ŽC3124,Kutina,ŽC3212,ŽC3213,3.4,45.47043,16.79783,ŽC3124,županijska cesta,2687,0.6269539990818144,exact_road_name,high
@@ -354,7 +354,7 @@ counter_id,category,oznaka_ceste,naziv,od,do,length_km,lat,lon,matched_oznaka_ce
 3627,ZC,ŽC4105,Budimci,LC44048,ŽC4080,5.2,45.46088,18.3187,ŽC4105,županijska cesta,3811,8.185854783368647,exact_road_name,high
 3628,ZC,ŽC4106,Krndija,ŽC4105,LC44105,3.4,45.45245,18.38127,ŽC4106,županijska cesta,3828,5.015281782532281,exact_road_name,high
 3631,ZC,ŽC4202,Čajkovci,ŽC4190,DC7,4.8,45.19715,18.38118,ŽC4202,županijska cesta,4102,2.523252525365438,exact_road_name,high
-3634,DC,DC7,Đakovo obilaznica,DC515,AC5,0.8,45.32882,18.39227,DC7,državna cesta,7400,3.9576362877169293,exact_road_name,high
+3634,DC,DC7,Đakovo obilaznica,DC515,A5,0.8,45.32882,18.39227,DC7,državna cesta,7400,3.9576362877169293,exact_road_name,high
 3635,DC,DC2,Martin,DC53,ŽC4077,1.4,45.493136,18.080812,DC2,državna cesta,517,25.93395163394858,exact_road_name,high
 3701,DC,DC2,Klisa aerodrom - sjever,LC44115,DC418,1.3,45.492108,18.813362,DC2,državna cesta,440,8.674511229637696,exact_road_name,high
 3705,DC,DC7,Vuka,ŽC4107,LC44107,2.5,45.460172,18.516707,DC7,državna cesta,7400,4.904216810168619,exact_road_name,high
@@ -396,19 +396,19 @@ counter_id,category,oznaka_ceste,naziv,od,do,length_km,lat,lon,matched_oznaka_ce
 4110,DC,DC107,Nova Novalja,ŽC5151,DC106,1.6,44.54268,14.89708,DC107,državna cesta,9095,2.4571598643586836,exact_road_name,high
 4111,LC,LC59001,Senj,LC59008,DC8,8.8,44.99435,14.90147,LC59001,lokalna cesta,5934,2.150337920433389,exact_road_name,high
 4112,ZC,ŽC5126,Oltari,DC8,LC59133,14.7,44.87398,14.98197,ŽC5126,županijska cesta,5337,4.255651517928396,exact_road_name,high
-4203,DC,DC50,Otočac (Brlog),AC1,ŽC5140,4.0,44.876752,15.204911,DC50,državna cesta,4648,2.9995078852920947,exact_road_name,high
+4203,DC,DC50,Otočac (Brlog),A1,ŽC5140,4.0,44.876752,15.204911,DC50,državna cesta,4648,2.9995078852920947,exact_road_name,high
 4204,DC,DC52,Vrhovine,ŽC5130,LC59140,6.6,44.84918,15.40352,DC52,državna cesta,5524,9.608418161618253,exact_road_name,high
 4205,DC,DC50,Ličko Lešće,ŽC5144,ŽC5147,2.3,44.802925,15.326257,DC50,državna cesta,4649,5.485013138220436,exact_road_name,high
 4206,DC,DC25,Budak,DC50,DC534,3.7,44.57848,15.3913,DC25,državna cesta,1631,4.323126416556708,exact_road_name,high
 4207,DC,DC8,Karlobag,DC25,LC63025,35.6,44.525497,15.077944,DC8,državna cesta,7643,1.1616249845622924,exact_road_name,high
 4209,DC,DC25,Novoselo Trnovačko,DC50,LC59123,27.6,44.518417,15.308348,DC25,državna cesta,1631,6.861930590708868,exact_road_name,high
 4219,DC,DC50,Perušić,ŽC5154,DC25,5.6,44.6374,15.39222,DC50,državna cesta,4649,0.12959903773259243,exact_road_name,high
-4220,ZC,ŽC5155,Perušić zona,AC1,LC59146,3.8,44.66532,15.41913,ŽC5155,županijska cesta,5414,6.576876530251652,exact_road_name,high
+4220,ZC,ŽC5155,Perušić zona,A1,LC59146,3.8,44.66532,15.41913,ŽC5155,županijska cesta,5414,6.576876530251652,exact_road_name,high
 4221,ZC,ŽC5128,Podum,LC59034,DC50,2.2,44.8793,15.25558,ŽC5128,županijska cesta,5342,0.5986930155145143,exact_road_name,high
 4222,ZC,ŽC5140,Krasno - istok,ŽC5126,ŽC5146,5.7,44.82017,15.06876,ŽC5140,županijska cesta,5374,5.061906220286079,exact_road_name,high
 4223,ZC,ŽC5126,Krasno,ŽC5140,LC59029,0.2,44.82303,15.04963,ŽC5126,županijska cesta,5339,5.746101574436152,exact_road_name,high
 4224,LC,LC59019,Kompolje,DC50,ŽC5140,2.9,44.89338,15.18327,LC59019,lokalna cesta,5953,3.439424668082346,exact_road_name,high
-4225,DC,DC50,Gospić - jug,DC25,AC1,28.5,44.5303,15.40285,DC50,državna cesta,4650,1.9049904811715854,exact_road_name,high
+4225,DC,DC50,Gospić - jug,DC25,A1,28.5,44.5303,15.40285,DC50,državna cesta,4650,1.9049904811715854,exact_road_name,high
 4301,DC,DC217,Ličko Petrovo Selo,DC1,GP,3.0,44.880562,15.725877,DC217,državna cesta,1170,0.6241595086927046,exact_road_name,high
 4302,DC,DC1,Prijeboj - jug,DC429,LC59045,7.9,44.82998,15.67352,DC1,državna cesta,35,0.24639836175611518,exact_road_name,high
 4304,DC,DC1,Jošan,LC59064,ŽC5195,12.3,44.580312,15.744271,DC1,državna cesta,23,2.0458656315875343,exact_road_name,high
@@ -436,7 +436,7 @@ counter_id,category,oznaka_ceste,naziv,od,do,length_km,lat,lon,matched_oznaka_ce
 4829,DC,DC56,Tromilja,DC502,ŽC6021,3.0,44.10965,15.40782,DC56,državna cesta,5754,5.424724666942692,exact_road_name,high
 4830,ZC,ŽC6019,Posedarje,DC8,ŽC6020,1.1,44.20897,15.46382,ŽC6019,županijska cesta,6119,8.235854332433577,exact_road_name,high
 4901,DC,DC1,Mutilić (Udbina),ŽC5195,LC59117,7.9,44.496942,15.763978,DC1,državna cesta,26,2.3772716108964,exact_road_name,high
-4905,DC,DC50,Sveti Rok,AC1,LC59116,1.5,44.380525,15.643391,DC50,državna cesta,4650,0.966782856902393,exact_road_name,high
+4905,DC,DC50,Sveti Rok,A1,LC59116,1.5,44.380525,15.643391,DC50,državna cesta,4650,0.966782856902393,exact_road_name,high
 4907,DC,DC1,Gračac - istok,DC27,LC63033,3.4,44.298884,15.863217,DC1,državna cesta,70,1.851050780794874,exact_road_name,high
 4911,DC,DC54,Jasenice,LC63067,LC63029,2.7,44.2291,15.53543,DC54,državna cesta,5675,2.6673415888006113,exact_road_name,high
 4912,DC,DC27,Zaton Obrovački,ŽC6027,ŽC6028,6.7,44.222774,15.752809,DC27,državna cesta,2064,2.863705889581401,exact_road_name,high
@@ -463,7 +463,7 @@ counter_id,category,oznaka_ceste,naziv,od,do,length_km,lat,lon,matched_oznaka_ce
 5317,DC,DC27,Gornje Ceranje,ŽC6064,ŽC6066,7.4,43.98867,15.60508,DC27,državna cesta,2070,2.7612923379866645,exact_road_name,high
 5319,DC,DC59,Čista Mala - jug,ŽC6069,DC27,6.0,43.884425,15.769527,DC59,državna cesta,5926,3.1972303951278005,exact_road_name,high
 5320,DC,DC58,Donje Polje,DC8,DC531,9.4,43.68305,15.9713,DC58,državna cesta,5776,2.3655838755510623,exact_road_name,high
-5322,DC,DC33,Dubrava Šibenska,AC1,DC8,4.8,43.734294,15.931262,DC33,državna cesta,2949,3.0628562158131905,exact_road_name,high
+5322,DC,DC33,Dubrava Šibenska,A1,DC8,4.8,43.734294,15.931262,DC33,državna cesta,2949,3.0628562158131905,exact_road_name,high
 5323,ZC,ŽC6064,Vrana,ŽC6042,LC63180,5.0,43.928897,15.508452,ŽC6064,županijska cesta,6196,2.298411700189233,exact_road_name,high
 5324,DC,DC59,Dubrava kod Tisna,LC65031,DC8,7.0,43.81707,15.70778,DC59,državna cesta,5927,8.656978320759155,exact_road_name,high
 5325,DC,DC8,Primošten - jug,LC65075,LC65076,4.9,43.57035,15.94495,DC8,državna cesta,7641,0.7394455537638179,exact_road_name,high
@@ -536,7 +536,7 @@ counter_id,category,oznaka_ceste,naziv,od,do,length_km,lat,lon,matched_oznaka_ce
 6010,DC,DC8,Rogotin,LC69086,LC69005,0.8,43.052612,17.473999,DC8,državna cesta,7631,0.6336601016053266,exact_road_name,high
 6012,DC,DC60,Vinjani Donji,DC76,LC67161,2.1,43.44265,17.23558,DC60,državna cesta,6065,1.884389632232042,exact_road_name,high
 6014,DC,DC62,Zagvozd,DC76,DC76,0.65,43.399583,17.050145,DC62,državna cesta,6432,1.8572936058401264,exact_road_name,high
-6023,ZC,ŽC6208,Vrgorac,AC1,ŽC6211,0.9,43.193037,17.379942,ŽC6208,županijska cesta,6453,4.233619690858634,exact_road_name,high
+6023,ZC,ŽC6208,Vrgorac,A1,ŽC6211,0.9,43.193037,17.379942,ŽC6208,županijska cesta,6453,4.233619690858634,exact_road_name,high
 6024,ZC,ŽC6182,Kamenmost,DC60,LC67162,2.0,43.429298,17.198879,ŽC6182,županijska cesta,6403,0.9324829874740411,exact_road_name,high
 6025,ZC,ŽC6199,Gornje Igrane,DC62,DC512,11.2,43.236934,17.145951,ŽC6199,županijska cesta,6431,1.068534587290692,exact_road_name,high
 6026,DC,DC76,Tunel Sveti Ilija,LC67177,LC67143,6.1,43.3938,17.03715,DC76,državna cesta,7601,6.698930462190068,exact_road_name,high
