@@ -1,10 +1,12 @@
-"""09v6 - Optimizirana topo-aware PGDP/PLDP. Vektorizirano."""
+"""09v7 - SAMO za nesrece s CESTA poljem.
+Razina prema kombinaciji fizicke udaljenosti uz cestu i broja raskrizja.
+Nesrece bez CESTA -> ostavlja se prazno (RAZINA_TOCNOSTI=none).
+"""
 import sys, shutil, math, unicodedata, pickle
 from pathlib import Path
 import pandas as pd
 import geopandas as gpd
 import shapely.wkb
-import numpy as np
 
 PROJECT_ROOT = Path("/sessions/lucid-zealous-archimedes/mnt/HC_brojanje/karta-opterecenja")
 PN_DIR = Path("/sessions/lucid-zealous-archimedes/mnt/HC_brojanje/PN")
@@ -17,7 +19,6 @@ COUNTERS_MATCHED = PROJECT_ROOT / "data" / "intermediate" / "counters_matched.cs
 XINGS_PKL = PROJECT_ROOT / "data" / "intermediate" / "road_crossings.pkl"
 
 CRS_HR = 3765; CRS_WGS84 = 4326
-GPS_RADIUS_M = 200; GPS_DECAY = 50.0
 
 YEAR_FILES = {
     2021: ("PN_NESRECE_G2021.xlsx", "PN_NEZGODE_G2021"),
@@ -40,6 +41,7 @@ def normalize_cesta(s):
     if s is None or pd.isna(s): return None
     s = str(s).strip()
     if not s: return None
+    if s in ("L99999",): return None  # nerazvrstana
     for full in ("DC", "AC", "ŽC", "LC"):
         if s.startswith(full): return s
     if s.startswith("ZC"): return "ŽC" + s[2:]
@@ -57,18 +59,32 @@ def normalize_name(s):
     return s.lower().strip()
 
 
-def conf_for_score(s):
-    if s is None: return "none"
-    if s == 0: return "high"
-    if s <= 0.5: return "medium"
-    if s <= 1.5: return "low"
+def conf_combined(d_along_m, score):
+    """Razina prema fizickoj udaljenosti uz cestu i score raskrizja."""
+    if d_along_m is None or score is None:
+        return "none"
+    # high: blizu i bez velikih raskrizja
+    if d_along_m <= 500 and score == 0:
+        return "high"
+    if d_along_m <= 1500 and score <= 0.3:
+        return "high"
+    # medium
+    if d_along_m <= 1000 and score <= 0.7:
+        return "medium"
+    if d_along_m <= 3000 and score <= 0.5:
+        return "medium"
+    # low
+    if d_along_m <= 3000 and score <= 1.5:
+        return "low"
+    if d_along_m <= 8000 and score <= 1.0:
+        return "low"
     return "estimate_range"
 
 
 def main(yr):
     fname, sheet = YEAR_FILES[yr]
     fp = PN_DIR / str(yr) / fname
-    print(f"[09v6] {yr}", flush=True)
+    print(f"[09v7] {yr}", flush=True)
     df = pd.read_excel(fp, sheet_name=sheet)
     print(f"     {len(df)} nesreca", flush=True)
 
@@ -86,10 +102,10 @@ def main(yr):
     sections = gpd.read_file(SECTIONS_GJ).to_crs(epsg=CRS_HR)
     traffic = pd.read_csv(TRAFFIC_LONG, dtype={"counter_id": str})
     target_yr = yr if yr in (2021, 2022, 2023, 2024) else 2024
-    col_pg = f"pgdp_{target_yr}"
-    col_pl = f"pldp_{target_yr}"
+    col_pg = f"pgdp_{target_yr}"; col_pl = f"pldp_{target_yr}"
 
     osm_j = gpd.read_file(OSM_JUNCT).to_crs(epsg=CRS_HR) if OSM_JUNCT.exists() else None
+
     cm = pd.read_csv(COUNTERS_MATCHED, dtype={"counter_id": str})
     cnt_pts = {}
     for _, row in cm.iterrows():
@@ -131,11 +147,10 @@ def main(yr):
             for _, j in cand.iterrows():
                 m = measure_on(road, j.geometry)
                 if m is not None and pd.notna(j.get("name")):
-                    jl.append({"m": m, "name": j["name"], "name_norm": normalize_name(j["name"])})
+                    jl.append({"m": m, "name": j["name"]})
             jl.sort(key=lambda x: x["m"])
             osm_per_road[road] = jl
 
-    # Pre-compute road stats per cesti
     road_stats = {}
     sec_full = sections[sections[col_pg].notna()].copy()
     for road, sub in sec_full.groupby("oznaka_ceste"):
@@ -162,69 +177,33 @@ def main(yr):
     out = df.copy()
     for c in ["PGDP", "PLDP", "PGDP_MIN", "PGDP_MAX", "PLDP_MIN", "PLDP_MAX",
               "OZNAKA_CESTE", "KATEGORIJA", "BROJAC_ID", "BROJAC_DIST_M",
-              "BROJAC_SCORE", "BROJAC_RASKRIZJA_BROJ", "BROJAC_VAZNA_RASKRIZJA",
-              "CESTA_VJEROJATNOST", "MATCH_METHOD", "CESTA_IZVOR",
-              "AC_SECTION", "AC_SECTION_MATCH"]:
+              "BROJAC_DIST_UZ_CESTU_M", "BROJAC_SCORE", "BROJAC_RASKRIZJA_BROJ",
+              "BROJAC_VAZNA_RASKRIZJA", "MATCH_METHOD", "AC_SECTION", "AC_SECTION_MATCH"]:
         out[c] = pd.NA
     out["RAZINA_TOCNOSTI"] = "none"
 
     valid_gps = df["_lat"].notna() & df["_lon"].notna()
-    valid_idx = df.loc[valid_gps].index.tolist()
+    has_cesta = df["_cesta_norm"].notna()
+    target_idx = df.loc[valid_gps & has_cesta].index.tolist()
+    print(f"     S CESTA + GPS: {len(target_idx)} (od {valid_gps.sum()} s GPS)", flush=True)
+
     pts_geo = gpd.GeoSeries(
-        gpd.points_from_xy(df.loc[valid_gps, "_lon"], df.loc[valid_gps, "_lat"]),
-        crs=f"EPSG:{CRS_WGS84}", index=valid_idx,
+        gpd.points_from_xy(df.loc[target_idx, "_lon"], df.loc[target_idx, "_lat"]),
+        crs=f"EPSG:{CRS_WGS84}", index=target_idx,
     ).to_crs(epsg=CRS_HR)
 
-    print(f"     Vektorizirani GPS-driven match (no-CESTA)...", flush=True)
-    no_cesta_idx = [i for i in valid_idx if pd.isna(df.at[i, "_cesta_norm"])]
-    cesta_idx = [i for i in valid_idx if pd.notna(df.at[i, "_cesta_norm"])]
-    print(f"     CESTA: {len(cesta_idx)}, no-CESTA: {len(no_cesta_idx)}", flush=True)
-
-    # Vektorizirano: sjoin_nearest za no-CESTA
-    if no_cesta_idx:
-        no_cesta_gdf = gpd.GeoDataFrame(
-            {"_idx": no_cesta_idx},
-            geometry=[pts_geo[i] for i in no_cesta_idx],
-            crs=f"EPSG:{CRS_HR}",
-        )
-        joined = gpd.sjoin_nearest(
-            no_cesta_gdf,
-            sec_full[[col_pg, col_pl, "oznaka_ceste", "kategorija_full", "geometry"]],
-            how="left", distance_col="dist_m", max_distance=GPS_RADIUS_M,
-        ).drop_duplicates(subset="_idx", keep="first")
-        print(f"     {len(joined)} GPS matchova", flush=True)
-        for _, r in joined.iterrows():
-            i = r["_idx"]
-            road = r.get("oznaka_ceste")
-            if pd.isna(road):
-                out.at[i, "MATCH_METHOD"] = "no_data"
-                continue
-            d = r["dist_m"]
-            P = math.exp(-d / GPS_DECAY) if pd.notna(d) else 0.0
-            out.at[i, "OZNAKA_CESTE"] = road
-            out.at[i, "CESTA_VJEROJATNOST"] = round(P, 2)
-            out.at[i, "CESTA_IZVOR"] = "gps_inferred"
-            # Quick path: just use this road and standard scoring
-            df.at[i, "_cesta_norm"] = road
-            df.at[i, "_gps_d"] = d
-            df.at[i, "_gps_P"] = P
-        # Updated cesta_idx with GPS-derived
-        cesta_idx = [i for i in valid_idx if pd.notna(df.at[i, "_cesta_norm"])]
-
     nh = nm = nl = ne = nn = 0
-    print(f"     Procesiram {len(cesta_idx)} nesreca s cestom...", flush=True)
+    print("     Procesiram...", flush=True)
 
-    for cnt_i, idx in enumerate(cesta_idx):
-        if cnt_i > 0 and cnt_i % 5000 == 0:
-            print(f"       {cnt_i}/{len(cesta_idx)}", flush=True)
+    for cnt_i, idx in enumerate(target_idx):
+        if cnt_i > 0 and cnt_i % 2000 == 0:
+            print(f"       {cnt_i}/{len(target_idx)}", flush=True)
         pt = pts_geo[idx]
         road = df.at[idx, "_cesta_norm"]
-        cesta_izvor = out.at[idx, "CESTA_IZVOR"] if pd.notna(out.at[idx, "CESTA_IZVOR"]) else "mup_polje"
 
         if road not in road_geom:
             out.at[idx, "OZNAKA_CESTE"] = road
             out.at[idx, "MATCH_METHOD"] = "road_not_in_network"
-            out.at[idx, "CESTA_IZVOR"] = cesta_izvor
             nn += 1
             continue
 
@@ -235,16 +214,16 @@ def main(yr):
                 out.at[idx, "PGDP"] = int(rs["pgdp_avg"])
                 out.at[idx, "PGDP_MIN"] = int(rs["pgdp_min"])
                 out.at[idx, "PGDP_MAX"] = int(rs["pgdp_max"])
-                out.at[idx, "PLDP"] = int(rs["pldp_avg"]) if rs["pldp_avg"] else None
-                out.at[idx, "PLDP_MIN"] = int(rs["pldp_min"]) if rs["pldp_min"] else None
-                out.at[idx, "PLDP_MAX"] = int(rs["pldp_max"]) if rs["pldp_max"] else None
+                if rs["pldp_avg"]:
+                    out.at[idx, "PLDP"] = int(rs["pldp_avg"])
+                    out.at[idx, "PLDP_MIN"] = int(rs["pldp_min"])
+                    out.at[idx, "PLDP_MAX"] = int(rs["pldp_max"])
                 out.at[idx, "OZNAKA_CESTE"] = road
                 out.at[idx, "MATCH_METHOD"] = "same_road_estimate"
                 out.at[idx, "RAZINA_TOCNOSTI"] = "estimate_range"
             else:
                 out.at[idx, "OZNAKA_CESTE"] = road
                 out.at[idx, "MATCH_METHOD"] = "no_counter_on_road"
-            out.at[idx, "CESTA_IZVOR"] = cesta_izvor
             ne += 1
             continue
 
@@ -253,8 +232,7 @@ def main(yr):
             out.at[idx, "MATCH_METHOD"] = "no_data"; nn += 1; continue
 
         is_ac = road.startswith("A")
-        ac_section = None
-        ac_section_match = None
+        ac_section = None; ac_section_match = None
         if is_ac and osm_per_road.get(road):
             jl = osm_per_road[road]
             before = [j for j in jl if j["m"] <= m_acc]
@@ -264,15 +242,22 @@ def main(yr):
             if jp and jn:
                 ac_section = f"čv. {jp['name']} - čv. {jn['name']}"
 
+        # Score + dist along road za sve brojace
         candidates = []
         for c in cms:
             s, xn, xb = score_between(road, m_acc, c["m"])
-            dc = abs(m_acc - c["m"])
-            # /removed/
-            candidates.append({"c": c, "s": s, "xn": xn, "xb": xb, "d": dc})
-        candidates.sort(key=lambda x: (x["s"], x["d"] if x["d"] is not None else 1e9))
+            d_along = abs(m_acc - c["m"])
+            try: dc = pt.distance(c["pt"])
+            except: dc = None
+            candidates.append({
+                "c": c, "s": s, "xn": xn, "xb": xb,
+                "d_along": d_along, "d_phys": dc,
+            })
+        # Sort: score asc, d_along asc
+        candidates.sort(key=lambda x: (x["s"], x["d_along"]))
         best = candidates[0]
 
+        # AC: pokušaj prosjek smjerova ako postoje za istu sekciju
         ac_brojaci = []
         if is_ac and ac_section:
             ap = normalize_name(ac_section.split(" - ")[0].replace("čv.", "").strip())
@@ -285,6 +270,8 @@ def main(yr):
                     ac_brojaci.append(c)
             ac_section_match = "match" if ac_brojaci else "mismatch"
 
+        cesta_izvor = "mup_polje"
+
         if is_ac and ac_brojaci:
             pgs = [b["pgdp"] for b in ac_brojaci if pd.notna(b.get("pgdp"))]
             pls = [b["pldp"] for b in ac_brojaci if pd.notna(b.get("pldp"))]
@@ -294,69 +281,72 @@ def main(yr):
             out.at[idx, "OZNAKA_CESTE"] = road
             out.at[idx, "KATEGORIJA"] = "autocesta"
             out.at[idx, "BROJAC_ID"] = ";".join(str(b["counter_id"]) for b in ac_brojaci)
-            out.at[idx, "BROJAC_DIST_M"] = best["d"]
+            out.at[idx, "BROJAC_DIST_M"] = best["d_phys"]
+            out.at[idx, "BROJAC_DIST_UZ_CESTU_M"] = best["d_along"]
             out.at[idx, "BROJAC_SCORE"] = 0.0
             out.at[idx, "AC_SECTION"] = ac_section
             out.at[idx, "AC_SECTION_MATCH"] = ac_section_match
             out.at[idx, "RAZINA_TOCNOSTI"] = cls
             out.at[idx, "MATCH_METHOD"] = "ac_section_avg"
-            out.at[idx, "CESTA_IZVOR"] = cesta_izvor
             if cls == "high": nh += 1
             else: nm += 1
             continue
-        elif is_ac and ac_section and not ac_brojaci:
-            cls = "low"
+
+        if is_ac and ac_section and not ac_brojaci:
             cnt = best["c"]
             out.at[idx, "PGDP"] = cnt["pgdp"] if pd.notna(cnt.get("pgdp")) else None
             out.at[idx, "PLDP"] = cnt["pldp"] if pd.notna(cnt.get("pldp")) else None
             out.at[idx, "OZNAKA_CESTE"] = road
             out.at[idx, "KATEGORIJA"] = "autocesta"
             out.at[idx, "BROJAC_ID"] = cnt["counter_id"]
-            out.at[idx, "BROJAC_DIST_M"] = best["d"]
+            out.at[idx, "BROJAC_DIST_M"] = best["d_phys"]
+            out.at[idx, "BROJAC_DIST_UZ_CESTU_M"] = best["d_along"]
             out.at[idx, "BROJAC_SCORE"] = best["s"]
             out.at[idx, "BROJAC_RASKRIZJA_BROJ"] = best["xn"]
             out.at[idx, "BROJAC_VAZNA_RASKRIZJA"] = best["xb"]
             out.at[idx, "AC_SECTION"] = ac_section
             out.at[idx, "AC_SECTION_MATCH"] = "mismatch"
-            out.at[idx, "RAZINA_TOCNOSTI"] = cls
+            out.at[idx, "RAZINA_TOCNOSTI"] = "low"
             out.at[idx, "MATCH_METHOD"] = "ac_section_mismatch"
-            out.at[idx, "CESTA_IZVOR"] = cesta_izvor
             nl += 1
             continue
 
+        # Standard (DC/ŽC/LC) - kombinirana razina od dist + score
         cnt = best["c"]
+        cls = conf_combined(best["d_along"], best["s"])
         out.at[idx, "PGDP"] = cnt["pgdp"] if pd.notna(cnt.get("pgdp")) else None
         out.at[idx, "PLDP"] = cnt["pldp"] if pd.notna(cnt.get("pldp")) else None
         out.at[idx, "OZNAKA_CESTE"] = road
         for k, v in KAT.items():
             if road.startswith(k): out.at[idx, "KATEGORIJA"] = v; break
         out.at[idx, "BROJAC_ID"] = cnt["counter_id"]
-        out.at[idx, "BROJAC_DIST_M"] = best["d"]
+        out.at[idx, "BROJAC_DIST_M"] = best["d_phys"]
+        out.at[idx, "BROJAC_DIST_UZ_CESTU_M"] = best["d_along"]
         out.at[idx, "BROJAC_SCORE"] = round(best["s"], 3)
         out.at[idx, "BROJAC_RASKRIZJA_BROJ"] = best["xn"]
         out.at[idx, "BROJAC_VAZNA_RASKRIZJA"] = best["xb"]
-        cls = conf_for_score(best["s"])
         if cls == "estimate_range":
             rs = road_stats.get(road)
             if rs and rs["pgdp_avg"] is not None:
                 out.at[idx, "PGDP_MIN"] = int(rs["pgdp_min"])
                 out.at[idx, "PGDP_MAX"] = int(rs["pgdp_max"])
                 out.at[idx, "PGDP"] = int(rs["pgdp_avg"])
-                out.at[idx, "PLDP_MIN"] = int(rs["pldp_min"]) if rs["pldp_min"] else None
-                out.at[idx, "PLDP_MAX"] = int(rs["pldp_max"]) if rs["pldp_max"] else None
-                out.at[idx, "PLDP"] = int(rs["pldp_avg"]) if rs["pldp_avg"] else None
+                if rs["pldp_avg"]:
+                    out.at[idx, "PLDP_MIN"] = int(rs["pldp_min"])
+                    out.at[idx, "PLDP_MAX"] = int(rs["pldp_max"])
+                    out.at[idx, "PLDP"] = int(rs["pldp_avg"])
         out.at[idx, "RAZINA_TOCNOSTI"] = cls
-        out.at[idx, "MATCH_METHOD"] = "topo_score"
-        out.at[idx, "CESTA_IZVOR"] = cesta_izvor
+        out.at[idx, "MATCH_METHOD"] = "dist_score"
         if cls == "high": nh += 1
         elif cls == "medium": nm += 1
         elif cls == "low": nl += 1
         else: ne += 1
 
     print(f"     h={nh} m={nm} l={nl} estimate={ne} none={nn}", flush=True)
+    print(f"     (Bez CESTA polja {(valid_gps & ~has_cesta).sum()} - ostavljeno prazno)", flush=True)
 
-    out_clean = out.drop(columns=[c for c in ["_lat", "_lon", "_cesta_norm", "_gps_d", "_gps_P"] if c in out.columns])
-    csv_tmp = Path("/tmp") / f"PN_{yr}_v6.csv"
+    out_clean = out.drop(columns=[c for c in ["_lat", "_lon", "_cesta_norm"] if c in out.columns])
+    csv_tmp = Path("/tmp") / f"PN_{yr}_v7.csv"
     out_clean.to_csv(csv_tmp, index=False, encoding="utf-8-sig")
     csv_final = OUT_DIR / f"PN_{yr}_s_pgdp_pldp.csv"
     shutil.copyfile(csv_tmp, csv_final)
