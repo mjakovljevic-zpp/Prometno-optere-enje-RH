@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="hr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Karta nesreća | PGDP/PLDP po nesreći</title>
+  <meta name="description" content="Interaktivna karta prometnih nesreća (2021. – 2025.) s pripisanim PGDP i PLDP vrijednostima na temelju lokacije i ceste nesreće.">
+  <link rel="stylesheet" href="assets/css/style.css">
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+        integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="">
+  <link rel="stylesheet" href="https://unpkg.com/leaflet.markercluster@1.5.3/dist/MarkerCluster.css">
+  <link rel="stylesheet" href="https://unpkg.com/leaflet.markercluster@1.5.3/dist/MarkerCluster.Default.css">
+  <script defer src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+          integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+  <script defer src="https://unpkg.com/leaflet.markercluster@1.5.3/dist/leaflet.markercluster.js"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/xlsx@0.18.5/dist/xlsx.full.min.js"></script>
+</head>
+<body class="map-page">
+<header>
+  <h1>Karta prometnih nesreća</h1>
+  <p>Lokacije nesreća (2021. – 2025.) s pripisanim PGDP/PLDP vrijednostima i razinom točnosti</p>
+</header>
+
+<nav>
+  <ul>
+    <li><a href="index.html">Karta opterećenja</a></li>
+    <li><a href="nesrece.html" class="active">Karta nesreća</a></li>
+    <li><a href="metodologija.md">Metodologija</a></li>
+    <li><a href="reports/quality_report.html">Validacija</a></li>
+  </ul>
+</nav>
+
+<main>
+  <div class="map-layout">
+
+    <aside class="filters" id="filters">
+      <h3>Filteri</h3>
+
+      <div class="filter-group">
+        <label for="f-year">Godina</label>
+        <select id="f-year">
+          <option value="2021">2021</option>
+          <option value="2022">2022</option>
+          <option value="2023">2023</option>
+          <option value="2024" selected>2024</option>
+          <option value="2025">2025</option>
+        </select>
+      </div>
+
+      <div class="filter-group">
+        <label>Posljedica nesreće</label>
+        <label class="checkbox"><input type="checkbox" data-p="P" checked> <span style="color:#c8102e;font-weight:600">●</span> S poginulima</label>
+        <label class="checkbox"><input type="checkbox" data-p="T" checked> <span style="color:#ef6c00;font-weight:600">●</span> Teško ozlijeđeni</label>
+        <label class="checkbox"><input type="checkbox" data-p="L" checked> <span style="color:#f9a825;font-weight:600">●</span> Lakše ozlijeđeni</label>
+        <label class="checkbox"><input type="checkbox" data-p="M" checked> <span style="color:#6b7280;font-weight:600">●</span> Materijalna šteta</label>
+      </div>
+
+      <div class="filter-group">
+        <label>Kategorija ceste</label>
+        <label class="checkbox"><input type="checkbox" data-kat="autocesta" checked> Autoceste</label>
+        <label class="checkbox"><input type="checkbox" data-kat="državna cesta" checked> Državne</label>
+        <label class="checkbox"><input type="checkbox" data-kat="županijska cesta" checked> Županijske</label>
+        <label class="checkbox"><input type="checkbox" data-kat="lokalna cesta" checked> Lokalne</label>
+        <label class="checkbox"><input type="checkbox" data-kat="" checked> Bez kategorije / gradske ulice</label>
+      </div>
+
+      <div class="filter-group">
+        <label>Razina točnosti PGDP/PLDP</label>
+        <label class="checkbox"><input type="checkbox" data-rt="high" checked> high</label>
+        <label class="checkbox"><input type="checkbox" data-rt="medium" checked> medium</label>
+        <label class="checkbox"><input type="checkbox" data-rt="low" checked> low</label>
+        <label class="checkbox"><input type="checkbox" data-rt="estimate_range" checked> estimate_range</label>
+        <label class="checkbox"><input type="checkbox" data-rt="none" checked> bez podataka</label>
+      </div>
+
+      <div class="filter-group">
+        <label>Raspon PGDP</label>
+        <div class="range-row">
+          <input type="number" id="f-pgdp-min" placeholder="min" min="0">
+          <input type="number" id="f-pgdp-max" placeholder="max" min="0">
+        </div>
+      </div>
+
+      <div class="filter-group">
+        <label for="f-cesta">Oznaka ceste (sadrži)</label>
+        <input type="text" id="f-cesta" placeholder="npr. A1, DC8">
+      </div>
+
+      <div class="filter-group">
+        <button class="btn secondary" id="btn-reset">Resetiraj filtere</button>
+      </div>
+
+      <div class="legend">
+        <strong>Boja prema posljedici</strong><br>
+        <span style="color:#c8102e;font-size:18px">●</span> Smrtne<br>
+        <span style="color:#ef6c00;font-size:18px">●</span> Teško ozlijeđeni<br>
+        <span style="color:#f9a825;font-size:18px">●</span> Lakše ozlijeđeni<br>
+        <span style="color:#6b7280;font-size:18px">●</span> Materijalna šteta<br>
+      </div>
+    </aside>
+
+    <section>
+      <div class="map-card">
+        <div class="map-toolbar">
+          <button class="btn secondary" id="btn-fit">Centriraj</button>
+          <button class="btn secondary" id="btn-export-xlsx">📊 Excel</button>
+          <button class="btn secondary" id="btn-export-csv">📄 CSV</button>
+          <span style="margin-left:auto; font-size:0.85rem; color:var(--muted);" id="counts-line"></span>
+        </div>
+        <div id="map"></div>
+      </div>
+
+      <div class="dashboard" id="dashboard"></div>
+
+      <div class="card">
+        <h2>Sažetak po posljedici</h2>
+        <div class="summary-counts" id="posl-counts"></div>
+        <h2 style="margin-top:1rem">Po razini točnosti PGDP/PLDP</h2>
+        <div class="summary-counts" id="rt-counts"></div>
+      </div>
+
+      <div class="note">
+        <strong>Metodologija:</strong> svakoj nesreći s GPS koordinatama pripisana je vrijednost PGDP i PLDP s najbližeg brojača na <em>istoj cesti</em> (kad MUP ima oznaku ceste) ili po vjerojatnosti GPS-a u krugu od 200 m. Razina točnosti se računa kao topološka udaljenost mjerena <em>težinama raskrižja</em> između lokacije brojača i lokacije nesreće — bez raskrižja = high, dosta raskrižja = estimate_range. Detalje vidi u
+        <a href="metodologija.md" target="_blank">metodologija.md</a>.
+      </div>
+    </section>
+
+  </div>
+</main>
+
+<footer>
+  Izvor: Sustav PN (MUP RH) 2021. – 2025. + brojanje prometa Hrvatske ceste 2021. – 2024.<br>
+  Generirano: <span id="gen-date"></span>.
+</footer>
+
+<script defer src="assets/js/nesrece.js"></script>
+</body>
+</html>

@@ -17,7 +17,7 @@ reports/*.html
 reports/*.csv
 !reports/.gitkeep
 
-# Heavy intermediate artefacts (uncomment if not desired in repo)
-# data/intermediate/
+# Heavy intermediate artefacts - ne treba ih u repo
+data/intermediate/
 
 # Source raw data (the source XLS/PDF/GPKG live in the parent folder)
